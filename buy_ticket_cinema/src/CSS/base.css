@@ -1,6 +1,26 @@
+:root {
+    --W-color: #fff;
+    --B-color: #000;
+    --Text-color: #333;
+}
+
 * {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     margin: 0;
+}
+
+.txt_link {
+    color: var(--Text-color);
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    color: white;
 }
