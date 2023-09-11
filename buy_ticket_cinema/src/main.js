@@ -2,9 +2,9 @@ import { createApp } from "vue";
 import App from "./App.vue";
 
 //*base css
-// import "./CSS/base.css";
+import "./CSS/base.css";
 //* responsive css
-// import "./CSS/responsive.css";
+import "./CSS/responsive.css";
 //* bootstrap css
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 //* icon
