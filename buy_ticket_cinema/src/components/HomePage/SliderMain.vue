@@ -4,7 +4,7 @@
         :autoplay="{
             delay: 3000,
             disableOnInteraction: false,
-        }" :speed="1500">
+        }" :speed="1000">
             <SwiperSlide v-for="(photo, index) in photos" :key="index"
             :style="{
                 'background-image': `url(${require(`../../assets/${photo.img}`)})`,
@@ -17,7 +17,7 @@
     </div>
 </template>
 <script>
-import { mapGetters } from 'vuex';
+// import { mapGetters } from 'vuex';
 import { Swiper, SwiperSlide} from 'swiper/vue';
 import { Navigation, Pagination, Autoplay  } from 'swiper/modules';
 
@@ -54,15 +54,27 @@ const photos = [
         name: 'NHÂN DUYÊN TIỀN ĐÌNH',
         img: '11233_105_100001.jpg'
     },
+    {
+        name: 'TRỪNG PHẠT',
+        img: '11245_105_100001.jpg'
+    },
+    {
+        name: 'ÁN MẠNG Ở VENICE',
+        img: '11231_105_100007.jpg'
+    },
+    {
+        name: 'LIVE - #pháttrựctiếp',
+        img: '11235_105_100001.jpg'
+    },
 ]
 
 
 export default {
-    computed: {
-        computed: {
-            ...mapGetters(['photos']),
-        },
-    },
+    // computed: {
+    //     computed: {
+    //         ...mapGetters(['photos']),
+    //     },
+    // },
 
     components: {
         Swiper,
@@ -71,15 +83,11 @@ export default {
 
     setup() {
         return {
+            photos,
             module: [Navigation, Pagination, Autoplay]
 
         }
     },
-    data() {
-        return {
-            photos,
-        }
-    }
 }
 </script>
 <style> 

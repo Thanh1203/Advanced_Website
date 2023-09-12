@@ -9,17 +9,24 @@
             </ul>
         </div>
         <div class="products">
-            <div class="btn_pre"></div>
-            <Swiper class="products_list" :modules="module" :watchSlidesProgress="true" :slidesPerView="3">
-                <SwiperSlide v-for="(product) in products" :key="product.id" class="product-swiperslide">
-                    <div class="box">
+            <div class="btn_product btn_pre"><font-awesome-icon @click="prevSlide" :icon="['fas', 'angle-left']" size="2xl" style="color: #000000;" /></div>
+            <Swiper class="products_list" :modules="module" :watchSlidesProgress="true" :slidesPerView="3"
+            :autoplay="{
+                delay: 2500,
+                disableOnInteraction: false,
+            }" :speed="1000" :allowTouchMove="false" @swiper="setSwiperRef" >
+                <SwiperSlide v-for="(product) in filterdProduct" :key="product.id" class="product-swiperslide">
+                    <div class="product_group">
                         <img :src="require(`@/assets/${product.img}`)" alt="">
-                        <p>{{ product.name }}</p>
+                        <p><strong>{{ product.name }}</strong></p>
+                        <p>Thể Loại: {{ product.genre }}</p>
+                        <p>Thời lượng: {{ product.duration }}</p>
+                        <p>Khởi chiếu: {{ product.premiere }}</p>
                         <button type="button" class="btn btn-success">BUY TICKET !</button>
                     </div>
                 </SwiperSlide>
             </Swiper>
-            <div class="btn_next"></div>
+            <div class="btn_product btn_next"><font-awesome-icon @click="nextSlide" :icon="['fas', 'angle-right']" size="2xl" style="color: #000000;" /></div>
         </div>
     </div>
 </template>
@@ -29,63 +36,131 @@ import { Autoplay } from 'swiper/modules';
 
 import 'swiper/css';
 
-
-const selects = ['PHIM ĐANG CHIẾU', 'PHIM SẮP CHIẾU', 'VÉ BÁN TRƯỚC']
+const selects = ['PHIM ĐANG CHIẾU', 'PHIM SẮP CHIẾU']
 const products = [
     {
         id: 1,
         name: 'BẾN PHÀ XÁC SỐNG',
         img: '11224_103_100001.jpg',
-        status: 'available'
+        genre: 'Hồi hộp',
+        duration: '119 phút',
+        premiere: '15-09-2023',
+        status: 1
     },
     {
         id: 2,
         name: 'ÁC QUỶ MA SƠ 2',
-        img: '11224_103_100001.jpg',
-        status: 'coming soon'
+        img: '11229_103_100001.jpg',
+        genre: 'Bí ẩn, Kinh Dị',
+        duration: '119 phút',
+        premiere: '15-09-2023',
+        status: 1
     },
     {
         id: 3,
         name: 'KẺ ẨN DANH',
-        img: '11224_103_100001.jpg',
-        status: 'oder'
+        img: '11186_103_100002.jpg',
+        genre: 'Gia đình, Hài, Hành Động',
+        duration: '119 phút',
+        premiere: '15-09-2023',
+        status: 1
     },
     {
         id: 4,
         name: 'BỘ ĐÔI BÁO THỦ',
-        img: '11224_103_100001.jpg',
-        status: 'oder'
+        img: '11225_103_100002.jpg',
+        genre: 'Hành Động',
+        duration: '119 phút',
+        premiere: '15-09-2023',
+        status: 1
     },
     {
         id: 5,
         name: 'ĐỊA ĐÀNG SỤP ĐỔ',
-        img: '11224_103_100001.jpg',
-        status: 'available'
+        img: '11221_103_100004.jpg',
+        genre: 'Hành Động, Hồi hộp',
+        duration: '119 phút',
+        premiere: '15-09-2023',
+        status: 1
     },
     {
         id: 6,
         name: '3DCG! SHIN - CẬU BÉ BÚT CHÌ: ĐẠI CHIẾN SIÊU NĂNG LỰC ~ SHUSI BAY',
         img: '11206_103_100003.jpg',
-        status: 'coming soon'
+        genre: 'Hoạt Hình',
+        duration: '119 phút',
+        premiere: '15-09-2023',
+        status: 1
     },
     {
         id: 7,
         name: 'NHÂN DUYÊN TIỀN ĐÌNH',
-        img: '11224_103_100001.jpg',
-        status: 'available'
+        img: '11233_103_100002.jpg',
+        genre: 'Hài, Tình cảm',
+        duration: '119 phút',
+        premiere: '15-09-2023',
+        status: 2
+    },
+        {
+        id: 8,
+        name: 'ÁN MẠNG Ở VENICE',
+        img: '11231_103_100002.jpg',
+        genre: 'Kinh Dị, Tâm Lý, Tội phạm',
+        duration: '103 phút',
+        premiere: '15-09-2023',
+        status: 2
+    },
+        {
+        id: 9,
+        name: 'TRỪNG PHẠT',
+        img: '11245_103_100001.jpg',
+        genre: 'Hành Động, Tội phạm',
+        duration: '91 phút',
+        premiere: '15-09-2023',
+        status: 2
+    },
+        {
+        id: 10,
+        name: 'THANH TRA SÁT NHÂN',
+        img: '11200_103_100003.jpg',
+        genre: 'Hành Động, Tội phạm',
+        duration: '102 Phút',
+        premiere: '28/07/2023',
+        status: 1
     },
 ]
+
+let swiperRef = null;
+
+const setSwiperRef = (swiper) => {
+    swiperRef = swiper;
+};
+
 
 export default {
     components: {
         Swiper,
         SwiperSlide
     },
+
+    watch: {
+    },
+
+    computed: {
+        filterdProduct() {
+            switch (this.isActive) {
+                case 1:
+                    return products.filter(product => product.status == 2)
+                default:
+                    return products.filter(product => product.status == 1)
+            }
+        },
+    },
     data() {
         return {
             selects,
             products,
-            isActive: 0
+            isActive: 0,
         }
     },
     methods: {
@@ -94,23 +169,42 @@ export default {
         }
     },
     setup() {
+
+        const nextSlide = () => {
+            if (swiperRef) {
+                swiperRef.slideTo(swiperRef.realIndex + 3);
+            }
+        };
+
+        const prevSlide = () => {
+            if (swiperRef) {
+                swiperRef.slideTo(swiperRef.realIndex - 3);
+            }
+        };
+
         return {
-            module: [ Autoplay]
+            module: [Autoplay],
+            setSwiperRef,
+            nextSlide,
+            prevSlide,
         }
     }
 }
 </script>
 
-<style>
+<style scoped>
 #index {
     text-align: center;
+    background-color: rgb(245, 245, 237);
+    position: relative;
+    padding-top: 50px;
 }
 
 .selects_list {
-    width: 70%;
+    width: 50%;
     display: flex;
     justify-content: space-between;
-    margin: 50px auto;
+    margin: 0 auto 50px;
 }
 
 .selects_list li {
@@ -129,19 +223,46 @@ export default {
     filter: blur(0);
 }
 
-.products_list {
-    height: 450px;
-    width: 80%;
+.products{
+    display: flex;
 }
 
-.box {
-    background-color: rgb(22, 99, 167);
-    height: 450px;
-    width: 220px;
+.products_list{
+    flex-basis: 80%;
+    height: 500px;
+}
+
+.product-swiperslide {
     padding: 10px;
+    height: 100%;
+    width: 310px;
+    display: flex;
+    justify-content: center;
 }
-.box >img {
-    height: 272px;
-    width: 197px;
+
+.product_group {
+    width: 290px;
+    overflow: hidden;
 }
+
+.product_group img {
+    height: 275px;
+}
+
+.btn_product {
+    flex-basis: 10%;
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.btn_pre {
+    justify-content: end;
+    padding-right: 20px;
+}
+
+.btn_next {
+    padding-left: 20px;
+}
+
 </style>

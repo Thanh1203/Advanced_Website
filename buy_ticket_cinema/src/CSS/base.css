@@ -24,3 +24,7 @@ ul {
 .swiper-button-next {
     color: white;
 }
+
+.hide {
+    opacity: 0 !important;
+}
