@@ -1,6 +1,6 @@
 <template>
     <div id="event">
-        <h1>Event</h1>
+        <h1 class="title-event">event</h1>
         <div class="event_container">
             <div v-for="(item, index) in eventPhoto" :key="index" :class="`event${index}`">
                 <img :src="require(`@/assets/${item.img}`)" alt="">
@@ -50,14 +50,32 @@ export default {
     padding-top: 50px;
     position: relative;
 }
-
-.event_container {
-    width: 1275px;
-    height: 1500px;
-    display: grid;
-    grid-template-columns: 325px 325px 325px;
-    grid-gap: 10px;
-    margin: 0 auto;
+.title-event
+{
+    text-transform: uppercase;
+    font-family: Mongolian Baiti;
+    font-style: italic;
+    font-weight: bolder;
+    font-size: 40px;
 }
-
+.event_container 
+{
+    display: grid;
+    grid-template-columns: 310px 360px auto;
+    grid-template-rows: 310px 310px ;
+    margin: 30px auto;
+    justify-content: center;
+}
+.event4
+{
+    margin-top: -125px;
+}
+.event5
+{
+    margin-top: -50px;
+}
+.event6
+{
+    margin-top: -120px;
+}
 </style>
