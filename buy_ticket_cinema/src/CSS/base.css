@@ -14,6 +14,7 @@
 .txt_link {
     color: var(--Text-color);
     text-decoration: none;
+    cursor: pointer;
 }
 
 ul {
@@ -26,5 +27,5 @@ ul {
 }
 
 .hide {
-    opacity: 0 !important;
+    display: none !important;
 }
