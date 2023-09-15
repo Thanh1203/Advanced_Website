@@ -18,10 +18,12 @@
                 <SwiperSlide v-for="(product) in filterdProduct" :key="product.id" class="product-swiperslide">
                     <div class="product_group">
                         <img :src="require(`@/assets/${product.img}`)" alt="">
-                        <p><strong>{{ product.name }}</strong></p>
-                        <p>Thể Loại: {{ product.genre }}</p>
-                        <p>Thời lượng: {{ product.duration }}</p>
-                        <p>Khởi chiếu: {{ product.premiere }}</p>
+                        <div class="product_in4">
+                            <p>{{ product.name }}</p>
+                            <p>Thể Loại: {{ product.genre }}</p>
+                            <p>Thời lượng: {{ product.duration }}</p>
+                            <p>Khởi chiếu: {{ product.premiere }}</p>
+                        </div>
                         <button type="button" class="btn btn-success">BUY TICKET !</button>
                     </div>
                 </SwiperSlide>
@@ -247,6 +249,39 @@ export default {
 
 .product_group img {
     height: 275px;
+    border: 6px solid black;
+}
+
+.product_in4
+{
+    text-align: left;
+    margin-left: 45px;
+}
+.product_in4 p:first-child {
+    width: 200px;
+    height: 18px;
+    font-family: Verdana;
+    font-size: 15px;
+    font-weight: bolder;
+    margin-top: 5px;
+}
+
+.product_in4 p:nth-of-type(2){
+    width: 200px;
+    height: 35px;
+    font-family: Verdana;
+    font-size: 14px;
+    font-weight: bolder;
+    margin-top: -10px;
+}
+
+.product_in4 p:nth-of-type(3){
+    color: violet;
+}
+
+
+.product_in4 p:last-child {
+    color: green;
 }
 
 .btn_product {
