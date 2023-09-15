@@ -18,10 +18,12 @@
                 <SwiperSlide v-for="(product) in filterdProduct" :key="product.id" class="product-swiperslide">
                     <div class="product_group">
                         <img :src="require(`@/assets/${product.img}`)" alt="">
-                        <p><strong>{{ product.name }}</strong></p>
-                        <p>Thể Loại: {{ product.genre }}</p>
-                        <p>Thời lượng: {{ product.duration }}</p>
-                        <p>Khởi chiếu: {{ product.premiere }}</p>
+                        <div class="product_info">
+                            <p>{{ product.name }}</p>
+                            <p>Thể Loại: {{ product.genre }}</p>
+                            <p>Thời lượng: {{ product.duration }}</p>
+                            <p>Khởi chiếu: {{ product.premiere }}</p>
+                        </div>
                         <button type="button" class="btn btn-success">BUY TICKET !</button>
                     </div>
                 </SwiperSlide>
@@ -31,104 +33,13 @@
     </div>
 </template>
 <script>
+import { mapGetters } from 'vuex';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Autoplay } from 'swiper/modules';
 
 import 'swiper/css';
 
 const selects = ['PHIM ĐANG CHIẾU', 'PHIM SẮP CHIẾU']
-const products = [
-    {
-        id: 1,
-        name: 'BẾN PHÀ XÁC SỐNG',
-        img: '11224_103_100001.jpg',
-        genre: 'Hồi hộp',
-        duration: '119 phút',
-        premiere: '15-09-2023',
-        status: 1
-    },
-    {
-        id: 2,
-        name: 'ÁC QUỶ MA SƠ 2',
-        img: '11229_103_100001.jpg',
-        genre: 'Bí ẩn, Kinh Dị',
-        duration: '119 phút',
-        premiere: '15-09-2023',
-        status: 1
-    },
-    {
-        id: 3,
-        name: 'KẺ ẨN DANH',
-        img: '11186_103_100002.jpg',
-        genre: 'Gia đình, Hài, Hành Động',
-        duration: '119 phút',
-        premiere: '15-09-2023',
-        status: 1
-    },
-    {
-        id: 4,
-        name: 'BỘ ĐÔI BÁO THỦ',
-        img: '11225_103_100002.jpg',
-        genre: 'Hành Động',
-        duration: '119 phút',
-        premiere: '15-09-2023',
-        status: 1
-    },
-    {
-        id: 5,
-        name: 'ĐỊA ĐÀNG SỤP ĐỔ',
-        img: '11221_103_100004.jpg',
-        genre: 'Hành Động, Hồi hộp',
-        duration: '119 phút',
-        premiere: '15-09-2023',
-        status: 1
-    },
-    {
-        id: 6,
-        name: '3DCG! SHIN - CẬU BÉ BÚT CHÌ: ĐẠI CHIẾN SIÊU NĂNG LỰC ~ SHUSI BAY',
-        img: '11206_103_100003.jpg',
-        genre: 'Hoạt Hình',
-        duration: '119 phút',
-        premiere: '15-09-2023',
-        status: 1
-    },
-    {
-        id: 7,
-        name: 'NHÂN DUYÊN TIỀN ĐÌNH',
-        img: '11233_103_100002.jpg',
-        genre: 'Hài, Tình cảm',
-        duration: '119 phút',
-        premiere: '15-09-2023',
-        status: 2
-    },
-        {
-        id: 8,
-        name: 'ÁN MẠNG Ở VENICE',
-        img: '11231_103_100002.jpg',
-        genre: 'Kinh Dị, Tâm Lý, Tội phạm',
-        duration: '103 phút',
-        premiere: '15-09-2023',
-        status: 2
-    },
-        {
-        id: 9,
-        name: 'TRỪNG PHẠT',
-        img: '11245_103_100001.jpg',
-        genre: 'Hành Động, Tội phạm',
-        duration: '91 phút',
-        premiere: '15-09-2023',
-        status: 2
-    },
-        {
-        id: 10,
-        name: 'THANH TRA SÁT NHÂN',
-        img: '11200_103_100003.jpg',
-        genre: 'Hành Động, Tội phạm',
-        duration: '102 Phút',
-        premiere: '28/07/2023',
-        status: 1
-    },
-]
 
 let swiperRef = null;
 
@@ -143,23 +54,22 @@ export default {
         SwiperSlide
     },
 
-    watch: {
-    },
+    watch: {},
 
     computed: {
+        ...mapGetters(['products']),
         filterdProduct() {
             switch (this.isActive) {
                 case 1:
-                    return products.filter(product => product.status == 2)
+                    return this.products.filter(product => product.status == 2)
                 default:
-                    return products.filter(product => product.status == 1)
+                    return this.products.filter(product => product.status == 1)
             }
         },
     },
     data() {
         return {
             selects,
-            products,
             isActive: 0,
         }
     },
@@ -243,6 +153,7 @@ export default {
 .product_group {
     width: 290px;
     overflow: hidden;
+    text-align: center;
 }
 
 .product_group img {

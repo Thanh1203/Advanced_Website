@@ -2,42 +2,22 @@
     <div id="event">
         <h1 class="title-event">event</h1>
         <div class="event_container">
-            <div v-for="(item, index) in eventPhoto" :key="index" :class="`event${index}`">
-                <img :src="require(`@/assets/${item.img}`)" alt="">
+            <div v-for="(item, index) in events" :key="index" :class="`event${index}`">
+                <a :href="`${item.link}`" class="txt_link"><img :src="require(`@/assets/${item.img}`)" alt=""></a> 
             </div>
         </div>
     </div>
 </template>
 <script>
-const eventPhoto = [
-    {
-       img:'event1.jpg' 
-    },
-    {
-        img: 'event2.jpg'
-    },
-    {
-        img: 'event3.jpg'
-    },
-    {
-       img:'event4.jpg' 
-    },
-    {
-        img: 'event5.jpg'
-    },
-    {
-        img: 'event6.jpg'
-    },
-    {
-        img: 'event7.jpg'
-    },
-]
+import { mapGetters } from 'vuex';
 
 export default {
+    computed: {
+        ...mapGetters(['events'])
+    },
+
     data() {
-        return {
-            eventPhoto,
-        }
+        return {}
     }
 }
 </script>
