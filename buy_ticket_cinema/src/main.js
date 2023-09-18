@@ -16,10 +16,12 @@ import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import { store } from "./store/store";
 
 //*router
+import router from "./Router/router";
 
 const app = createApp(App);
 library.add(fas);
 app.component("font-awesome-icon", FontAwesomeIcon);
 app.use(store);
+app.use(router);
 
 app.mount("#app");

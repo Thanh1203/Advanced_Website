@@ -26,7 +26,7 @@
             </div>
         </div>
         <div class="nav_login_user">
-            <button type="button" class="btn btn-outline-dark" :class="{ hide: isShow }">Đăng nhập</button>
+            <button type="button" class="btn btn-outline-dark" :class="{ hide: isShow }" @click="goToLogin">Đăng nhập</button>
             <div class="nav_user" :class="{ hide: !isShow }">
                 <font-awesome-icon :icon="['fas', 'circle-user']" size="2xl" style="color: #000000;" />
                 <div class="nav_user_info"></div>
@@ -53,6 +53,9 @@ export default {
     methods: {
         btn_cancle_searching() {
             this.searching = ''
+        },
+        goToLogin() {
+            this.$router.push('/Login')
         }
     },  
     data() {

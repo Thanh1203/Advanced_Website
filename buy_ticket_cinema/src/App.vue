@@ -1,18 +1,12 @@
 <template>
-  <HomeUser></HomeUser>
-  <!-- <PageLogin></PageLogin> -->
+  <router-view/>
 </template>
 
 <script>
-import HomeUser from './View/HomeUser.vue';
-// import PageLogin from './View/PageLogin.vue';
 
 export default {
   name: 'App',
-  components: {
-    HomeUser,
-    // PageLogin
-  }
+  components: {}
 }
 </script>
 
