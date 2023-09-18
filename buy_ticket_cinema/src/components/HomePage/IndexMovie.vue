@@ -168,6 +168,7 @@ export default {
     margin-top: 6px;
     margin-bottom: 6px;
     margin-left: 45px;
+    height: 155px;
 }
 
 p
@@ -198,9 +199,7 @@ p
 }
 .btn-success
 {
-    margin-left: -75px;
-    position: absolute;
-    bottom: 0;
+    margin-left: -25px;
 }
 
 .btn_product {
