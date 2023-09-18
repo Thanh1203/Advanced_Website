@@ -15,6 +15,8 @@ import "../node_modules/bootstrap/dist/css/bootstrap.css";
 //*store
 import { store } from "./store/store";
 
+//*router
+
 const app = createApp(App);
 library.add(fas);
 app.component("font-awesome-icon", FontAwesomeIcon);

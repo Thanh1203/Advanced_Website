@@ -154,6 +154,7 @@ export default {
     width: 290px;
     overflow: hidden;
     text-align: center;
+    position: relative;
 }
 
 .product_group img {
@@ -198,6 +199,8 @@ p
 .btn-success
 {
     margin-left: -75px;
+    position: absolute;
+    bottom: 0;
 }
 
 .btn_product {
