@@ -24,6 +24,9 @@
 </template>
 <script>
 export default {
+    computed: {
+        
+    },
     data() {
         return {
             isShow: false,
