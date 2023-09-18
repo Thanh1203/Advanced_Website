@@ -165,7 +165,7 @@ export default {
 {
     text-align: left;
     margin-top: 6px;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
     margin-left: 45px;
 }
 
@@ -197,7 +197,7 @@ p
 }
 .btn-success
 {
-    margin-left: -70px;
+    margin-left: -75px;
 }
 
 .btn_product {
