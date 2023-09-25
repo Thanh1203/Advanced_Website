@@ -35,7 +35,7 @@
     <div class="mb-3">
         <p>Have an account? <span class="goLo" @click="goLogin">Let's Login</span></p>
     </div>
-    <button type="submit" class="btn btn-primary">Register</button>
+    <button type="submit" class="btn btn-primary" @click="registerring">Register</button>
 </div>
 </template>
 <script setup>
@@ -43,6 +43,10 @@ import router from '@/Router/router';
 
 const goLogin = () => {
     router.push('/Login')
+}
+
+const registerring = () => {
+    router.push('/')
 }
 </script>
 <style scoped>

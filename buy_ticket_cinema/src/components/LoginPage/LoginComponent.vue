@@ -32,8 +32,7 @@
                 <!-- Phần Register now e có chọn màu tùy thích nhé a css tạm trước thôi -->
             </div>
         </div>
-        
-        <button type="submit" class="btn btn-primary">Login</button>
+        <button type="submit" class="btn btn-primary" @click="loginning">Login</button>
         <!-- Đưa thg button này ra giữa và tăng chiều dài nó ra nhé đổi màu cùng với các thg kia -->
     </form>
 </div>
@@ -46,6 +45,10 @@ import router from '@/Router/router';
 
 const goRegister = () => {
     router.push('/Register')
+}
+
+const loginning = () => {
+    router.push('/')
 }
 
 </script>
