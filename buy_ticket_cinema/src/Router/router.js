@@ -1,6 +1,8 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import HomeUser from "../View/HomeUser.vue";
-import PageLogin from "../View/PageLogin.vue";
+import LoginComponentVue from "@/components/LoginPage/LoginComponent.vue";
+import RegisterComponentVue from "@/components/LoginPage/RegisterComponent.vue";
+import BuyTicketVue from "@/View/BuyTicket.vue";
 
 const routes = [
   {
@@ -9,7 +11,15 @@ const routes = [
   },
   {
     path: "/Login",
-    component: PageLogin,
+    component: LoginComponentVue,
+  },
+  {
+    path: "/Register",
+    component: RegisterComponentVue,
+  },
+  {
+    path: "/Buy_ticket",
+    component: BuyTicketVue,
   },
 ];
 

@@ -9,25 +9,13 @@
         <ContactUser></ContactUser>
     </main>
 </template>
-<script>
+<script setup>
 import NavigateHeader from '@/components/HomePage/NavigateHeader.vue';
 import SliderMain from '@/components/HomePage/SliderMain.vue'
 import IndexMovie from '@/components/HomePage/IndexMovie.vue';
 import EventUser from '@/components/HomePage/EventUser.vue';
 import ContactUser from '@/components/HomePage/ContactUser.vue';
 
-export default {
-    components: {
-        NavigateHeader,
-        SliderMain,
-        IndexMovie,
-        EventUser,
-        ContactUser,
-    },
-    data() {
-        return {}
-    }
-}
 </script>
 <style>
 header {

@@ -24,7 +24,7 @@
                             <p><strong>Thời lượng:</strong> {{ product.duration }}</p>
                             <p><strong>Khởi chiếu: </strong>{{ product.premiere }}</p>
                         </div>
-                        <button type="button" class="btn btn-success">BUY TICKET !</button>
+                        <button type="button" class="btn btn-success" @click="buyTicket">BUY TICKET !</button>
                     </div>
                 </SwiperSlide>
             </Swiper>
@@ -76,6 +76,9 @@ export default {
     methods: {
         changeSelect: function (index) {
             this.isActive = index
+        },
+        buyTicket: function () {
+            this.$router.push("/Buy_ticket")
         }
     },
     setup() {
