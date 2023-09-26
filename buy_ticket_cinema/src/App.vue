@@ -13,6 +13,9 @@ export default {
 </script>
 
 <style>
+#app{
+  height: 100%;
+}
 .page-opacity-enter-active,
 .page-opacity-leave-active {
   transition: 0.6s ease all;
