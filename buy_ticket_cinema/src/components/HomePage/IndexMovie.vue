@@ -19,12 +19,14 @@
                     <div class="product_group">
                         <img :src="require(`@/assets/${product.img}`)" alt="">
                         <div class="product_info">
-                            <p>{{ product.name }}</p>
-                            <p><strong>Thể Loại:</strong> {{ product.genre }}</p>
-                            <p><strong>Thời lượng:</strong> {{ product.duration }}</p>
-                            <p><strong>Khởi chiếu: </strong>{{ product.premiere }}</p>
+                            <div class="product-name"><p>{{ product.name }}</p></div>
+                            <div class="box-info">
+                                <p><strong>Thể Loại:</strong> {{ product.genre }}</p>
+                                <p><strong>Thời lượng:</strong> {{ product.duration }}</p>
+                                <p><strong>Khởi chiếu: </strong>{{ product.premiere }}</p>
+                            </div>
                         </div>
-                        <button type="button" class="btn btn-success" @click="buyTicket">BUY TICKET !</button>
+                        <button type="button" class="btn buy-btn" @click="buyTicket">BUY TICKET !</button>
                     </div>
                 </SwiperSlide>
             </Swiper>
@@ -108,7 +110,7 @@ export default {
 <style scoped>
 #index {
     text-align: center;
-    background-color: rgb(245, 245, 237);
+    background-color: white;
     position: relative;
     padding-top: 50px;
 }
@@ -124,25 +126,27 @@ export default {
     font-size: 1.4rem;
     cursor: default;
     color: #737171;
-    border: 5px solid greenyellow;
     padding: 10px; 
     border-radius: 30px;
     font-weight: bold;
 }
 
 .selects_list li.active {
-    background-color: greenyellow;
-    color: rgb(65, 64, 64);
+    background-color: rgb(218, 41, 28);
+    color: white;
     filter: blur(0);
+    border: 1px solid rgb(218, 41, 28);
+    box-shadow: 0 0 5px 5px rgb(218, 41, 28);
 }
 
 .products{
     display: flex;
+    height: 550px;
 }
 
 .products_list{
     flex-basis: 80%;
-    height: 500px;
+    height: 550px;
 }
 
 .product-swiperslide {
@@ -155,54 +159,66 @@ export default {
 
 .product_group {
     width: 290px;
-    overflow: hidden;
-    text-align: center;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .product_group img {
-    height: 275px;
-    border: 6px solid black;
+    height: 334px;
+    width: 228px;
+    margin: 0 31px;
 }
 
 .product_info
 {
-    text-align: left;
-    margin-top: 6px;
-    margin-bottom: 6px;
-    margin-left: 45px;
     height: 155px;
+    width: 228px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
 }
-
-p
+.product_info p
 {
     margin: 0;
-}
-.product_info p:first-child {
-    width: 200px;
     font-family: Verdana;
+    font-size: 14px;
+}
+.product-name {
+    width: 100%;
+    height: 50px;
+    overflow: hidden;
+}
+.product-name > p {
     font-size: 15px;
     font-weight: bolder;
+    margin: 0 auto;
+    word-break: break-word;
+    line-height: 1.55;
+}
+.box-info {
+    display: flex;
+    height: 100px;
+    width: 100%;
+    flex-direction: column;
+    padding-bottom: 10px;
+    align-items: start;
+}
+.box-info p {
+    word-break: break-word;
+    width: 100%;
+    text-align: left;
+
 }
 
-.product_info p:nth-of-type(2){
-    width: 200px;
-    font-family: Verdana;
-    font-size: 14px;
-}
-
-.product_info p:nth-of-type(3){
-    font-family: Verdana;
-    font-size: 14px;
-}
-
-.product_info p:last-child {
-    font-family: Verdana;
-    font-size: 14px;
-}
-.btn-success
+.buy-btn
 {
     margin-left: -25px;
+    background-color: rgb(218, 41, 28);
+    border: 1px solid white;
 }
 
 .btn_product {
