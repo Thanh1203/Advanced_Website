@@ -25,7 +25,7 @@ export const store = createStore({
         img: "11221_105_100008.jpg",
       },
       {
-        name: "3DCG! SHIN - CẬU BÉ BÚT CHÌ: ĐẠI CHIẾN SIÊU NĂNG LỰC ~ SHUSI BAY",
+        name: "3DCG! SHIN - CẬU BÉ BÚT CHÌ",
         img: "11206_105_100007.jpg",
       },
       {
@@ -81,7 +81,7 @@ export const store = createStore({
       },
       {
         id: 6,
-        name: "3DCG! SHIN - CẬU BÉ BÚT CHÌ: ĐẠI CHIẾN SIÊU NĂNG LỰC ~ SHUSI BAY",
+        name: "3DCG! SHIN - CẬU BÉ BÚT CHÌ",
         img: "11206_103_100003.jpg",
         genre: "Hoạt Hình",
         duration: "119 phút",

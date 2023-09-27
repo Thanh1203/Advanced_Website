@@ -1,6 +1,6 @@
 <template>
-<div class="Login">
-    <div id="LoginForm">
+<div id="Login">
+    <div class="LoginForm">
         <h1 class="title-login">Login</h1>
         <form action="#">
             <div class="input-group mb-3">
@@ -49,7 +49,7 @@ const loginning = () => {
 
 </script>
 <style scoped>
-.Login 
+#Login 
 {
     background-image: url(../../assets/background-login.jpg);
     background-repeat: no-repeat;
@@ -59,11 +59,7 @@ const loginning = () => {
     display: flex;
     justify-content: center;
 }
-/* .wrapper
-{
-
-} */
-#LoginForm {
+.LoginForm {
     height: 500px;
     width: 500px;
     background-color: transparent;

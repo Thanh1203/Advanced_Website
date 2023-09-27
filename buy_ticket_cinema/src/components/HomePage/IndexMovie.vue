@@ -195,9 +195,9 @@ export default {
 .product-name > p {
     font-size: 15px;
     font-weight: bolder;
-    margin: 0 auto;
     word-break: break-word;
-    line-height: 1.55;
+    line-height: 1.6;
+    text-align: left;
 }
 .box-info {
     display: flex;
@@ -211,14 +211,13 @@ export default {
     word-break: break-word;
     width: 100%;
     text-align: left;
-
 }
 
 .buy-btn
 {
-    margin-left: -25px;
     background-color: rgb(218, 41, 28);
     border: 1px solid white;
+    color: white;
 }
 
 .btn_product {
