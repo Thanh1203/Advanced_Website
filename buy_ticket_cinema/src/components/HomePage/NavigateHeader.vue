@@ -128,6 +128,7 @@ export default {
     height: 60px;
     width: 100%;
     display: flex;
+    margin-bottom: 10px;
 }
 
 .product_search > img {
