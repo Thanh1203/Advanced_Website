@@ -90,7 +90,7 @@ const registerring = () => {
     text-align: start;
 }
 .goLo{
-    color: rgb(219, 212, 212);
+    color: red;
     text-decoration: underline;
     cursor: pointer;
 }
