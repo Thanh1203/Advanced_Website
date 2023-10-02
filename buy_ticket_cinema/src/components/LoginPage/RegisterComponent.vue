@@ -10,7 +10,7 @@
         <div class="row mb-3 input-group">
             <div class="input-name">
             <input type="text" class="form-control" placeholder="First name" aria-label="First name">
-            </div>
+            </div>  
             <div class="input-name">
             <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
             </div>
@@ -105,6 +105,7 @@ const registerring = () => {
 
 .row {
     justify-content: space-between;
+    margin-left: 0;
 }
 
 .input-name{

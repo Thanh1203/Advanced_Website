@@ -1,13 +1,16 @@
 <template>
     <header>
-        <NavigateHeader></NavigateHeader>
+        <NavigateHeader/>
     </header>
     <main>
-        <SliderMain></SliderMain>
-        <IndexMovie></IndexMovie>
-        <EventUser></EventUser>
-        <ContactUser></ContactUser>
+        <SliderMain/>
+        <IndexMovie/>
+        <EventUser/>
+        <ContactUser/>
     </main>
+    <footer>
+        <NotificationCinema/>
+    </footer>
 </template>
 <script setup>
 import NavigateHeader from '@/components/HomePage/NavigateHeader.vue';
@@ -15,6 +18,7 @@ import SliderMain from '@/components/HomePage/SliderMain.vue'
 import IndexMovie from '@/components/HomePage/IndexMovie.vue';
 import EventUser from '@/components/HomePage/EventUser.vue';
 import ContactUser from '@/components/HomePage/ContactUser.vue';
+import NotificationCinema from '@/components/HomePage/NotificationCinema.vue';
 
 </script>
 <style>
@@ -28,7 +32,11 @@ header {
 }
 main {
     position: relative;
-    height: 1900px;
+    width: 100%;
+}
+footer {
+    border-top: 1px solid #e5e5e5;
+    position: relative;
     width: 100%;
 }
 </style>

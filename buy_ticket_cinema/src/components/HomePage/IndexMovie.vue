@@ -84,7 +84,6 @@ export default {
         }
     },
     setup() {
-
         const nextSlide = () => {
             if (swiperRef) {
                 swiperRef.slideTo(swiperRef.realIndex + 3);
