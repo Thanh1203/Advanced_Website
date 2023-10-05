@@ -9,3 +9,4 @@ namespace MyWebApi.Data
         public DbSet<accountAdmin> accountAdmins { get; set; }
     }
 }
+ 

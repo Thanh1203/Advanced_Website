@@ -21,7 +21,7 @@ import ContactUser from '@/components/HomePage/ContactUser.vue';
 import NotificationCinema from '@/components/HomePage/NotificationCinema.vue';
 
 </script>
-<style>
+<style scoped>
 header {
     height: 130px;
     width: 100%;

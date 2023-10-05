@@ -1,11 +1,15 @@
 import { createRouter, createWebHashHistory } from "vue-router";
+//* User
 import HomeUser from "@/View/HomeUser.vue";
 import LoginComponentVue from "@/components/LoginPage/LoginComponent.vue";
 import RegisterComponentVue from "@/components/LoginPage/RegisterComponent.vue";
 import BuyTicketVue from "@/View/BuyTicket.vue";
-import LoginAdminVue from "@/components/LoginAdminPage/LoginAdmin.vue";
+//* Admin
+import PageLoginAdminVue from "@/View/PageLoginAdmin.vue";
+import HomeAdminVue from "@/View/HomeAdmin.vue";
 
 const routes = [
+  //* User
   {
     path: "/",
     component: HomeUser,
@@ -22,9 +26,14 @@ const routes = [
     path: "/Buy_ticket",
     component: BuyTicketVue,
   },
+  //* Admin
   {
     path: "/Login-Admin",
-    component: LoginAdminVue,
+    component: PageLoginAdminVue,
+  },
+  {
+    path: "/Home-Admin",
+    component: HomeAdminVue,
   },
 ];
 

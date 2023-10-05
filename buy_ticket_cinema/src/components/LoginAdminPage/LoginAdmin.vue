@@ -29,6 +29,8 @@
 <script setup>
 import axios from 'axios';
 import { onMounted, ref } from 'vue';
+import router from '@/Router/router';
+
 
 let username = ref('')
 let password = ref('')
@@ -44,14 +46,14 @@ onMounted(() => {
 })
 
 const loginadmin = () => {
-    handleLogin()
+    if (handleLogin()) {
+        router.push("/Home-Admin")
+    }
 }
 
 function handleLogin() {
-    logindata.find(item => {
-        if (item.taikhoan == username.value && item.matkhau == password.value) {
-            console.log(item);
-        }
+    return logindata.some(item => {
+        return item.taikhoan == username.value && item.matkhau == password.value
     })
 }
 </script>
