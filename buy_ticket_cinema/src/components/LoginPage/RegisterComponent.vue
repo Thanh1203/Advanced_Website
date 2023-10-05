@@ -1,40 +1,46 @@
 <template>
 <div id="register">
+    <div class="register-img">
+            <img src="../../assets/favicon.png" alt="Logo" class="logo1">
+            <img src="../../assets/logo.png" alt="Logo" class="logo2">
+    </div>
     <div class="ReForm">
         <h1 class="title-register">Register</h1>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"><font-awesome-icon :icon="['fas', 'at']" style="color: #000000;" /></span>
-            <input type="text" class="form-control" placeholder="Your Email" aria-label="Recipient's username" aria-describedby="basic-addon2">
-            <span class="input-group-text" id="basic-addon2">@gmail.com</span>
-        </div>
-        <div class="row mb-3 input-group">
-            <div class="input-name">
-            <input type="text" class="form-control" placeholder="First name" aria-label="First name">
-            </div>  
-            <div class="input-name">
-            <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+        <form action="#" class="re-form">
+            <div class="input-group mb-3">
+                <span class="input-group-text"><font-awesome-icon :icon="['fas', 'at']" style="color: #000000;" /></span>
+                <input type="text" class="form-control" placeholder="Your Email" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <span class="input-group-text">@gmail.com</span>
             </div>
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"><font-awesome-icon :icon="['fas', 'user']" style="color: #000000;" /></span>
-            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"><font-awesome-icon :icon="['fas', 'key']" style="color: #000000;" /></span>
-            <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"><font-awesome-icon :icon="['fas', 'check-double']" style="color: #000000;" /></span>
-            <input type="password" class="form-control" id="inputPassword3" placeholder="Confirm password">
-        </div>
-        <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Agree to the terms</label>
-        </div>
-        <div class="back-login mb-3">
-            <p>Have an account? <span class="goLo" @click="goLogin">Let's Login</span></p>
-        </div>
-        <button type="submit" class="btn btn-primary" @click="registerring">Register</button>
+            <div class="row mb-3 input-group">
+                <div class="input-name">
+                <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+                </div>  
+                <div class="input-name">
+                <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text"><font-awesome-icon :icon="['fas', 'user']" style="color: #000000;" /></span>
+                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text"><font-awesome-icon :icon="['fas', 'key']" style="color: #000000;" /></span>
+                <input type="password" class="form-control" placeholder="Password">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text"><font-awesome-icon :icon="['fas', 'check-double']" style="color: #000000;" /></span>
+                <input type="password" class="form-control" placeholder="Confirm password">
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" >
+                <label class="form-check-label">Agree to the terms</label>
+            </div>
+            <div class="back-login mb-3">
+                <p>Have an account? <span class="goLo" @click="goLogin">Let's Login</span></p>
+            </div>
+            <button type="submit" class="btn btn-primary" @click="registerring">Register</button>
+        </form>
     </div>
 </div>
 </template>
@@ -60,61 +66,91 @@ const registerring = () => {
     display: flex;
     justify-content: center;
 }
+
+.register-img {
+    width: 500px;
+    height: 550px;
+    background-color: white;
+    align-self: center;
+    border: 1px solid rgb(80, 80, 80);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-img .logo1 {
+    margin: 0 auto;
+    height: 100px;
+}
+
+.register-img .logo2 {
+    margin: 0 auto;
+    height: 73px;
+}
+
 .ReForm {
     height: 550px;
     width: 500px;
-    background-color: transparent;
-    backdrop-filter: blur(20px);
-    border: solid 3px red;
-    box-shadow: 0 0 20px 5px red;
-    border-radius: 20px;
+    background-color: white;
+    border: 1px solid rgb(80, 80, 80);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
     align-self: center;
     padding: 0 10px;
     text-align: center;
 }
-.title-register
-{
+.ReForm .title-register{
     padding-top: 50px;
     text-align: center;
-    color: white;
+    color: rgb(218, 41, 28);
     margin-bottom: 30px;
 }
-.form-check-label
-{
-    color: white;
+
+.re-form .row {
+    justify-content: space-between;
+    margin-left: 0;
 }
-.back-login
-{
-    width: 100%;
-    color: white;
+
+.re-form .row .input-name{
+    padding: 0;
+    flex-basis: 48%;
+    --bs-gutter-x: none;
+}
+
+.re-form .form-check{
     text-align: start;
 }
-.goLo{
-    color: red;
+
+.re-form .form-check .form-check-label
+{
+    color: rgb(218, 41, 28);
+}
+
+.re-form .form-check .form-check-input{
+    border: rgb(218, 41, 28) 1px solid;
+}
+
+.re-form .back-login{
+    width: 100%;
+    color: rgb(218, 41, 28);
+    text-align: start;
+}
+.re-form .back-login .goLo{
+    color: black;
     text-decoration: underline;
     cursor: pointer;
 }
-.btn-primary
+
+
+.re-form .btn-primary
 {
     width: 250px;
     border: solid 1px black;
     border-radius: 50px;
     background-color:white;
     color: black;
-}
-
-.row {
-    justify-content: space-between;
-    margin-left: 0;
-}
-
-.input-name{
-    padding: 0;
-    flex-basis: 48%;
-    --bs-gutter-x: none;
-}
-
-.form-check{
-    text-align: start;
 }
 </style>
