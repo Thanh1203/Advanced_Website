@@ -1,11 +1,19 @@
 {
   "Version": 1,
-  "Hash": "vizQGmpeY32a2CBIDbe5eqgH5naOqhsyPaW8bJPaRzc=",
+  "Hash": "mYrugwMIUlbOZa2Xsqrvye8Kgt+gTRgSA1ImxBS4hHk=",
   "Source": "MyWebApi",
   "BasePath": "_content/MyWebApi",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "MyWebApi\\wwwroot",
+      "Source": "MyWebApi",
+      "ContentRoot": "D:\\My workspace data\\Advanced_Website\\backend\\MyWebApi\\MyWebApi\\wwwroot\\",
+      "BasePath": "_content/MyWebApi",
+      "Pattern": "**"
+    }
+  ],
   "Assets": []
 }

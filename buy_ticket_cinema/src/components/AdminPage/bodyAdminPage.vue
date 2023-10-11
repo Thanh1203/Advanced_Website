@@ -9,16 +9,26 @@
             </button>
         </div>
         <ul class="list">
-            <li v-for="(item, index) in listTemp" :key="index" class="item-list fl-jc-center ">
+            <li v-for="(item) in products" :key="item.id" class="item-list fl-jc-center ">
                 <div class="item-gr">
-                    <div class="item-img"></div>
-                    <div class="item-info">
-                        <h2>{{ item }}</h2>
-                        <p>Thể loại</p>
-                        <p>Thời lượng</p>
-                        <p>Khởi chiếu</p>
-                        <div class="item-showtimes">
-
+                    <div class="item-img">
+                        <img :src="require(`@/assets/${item.img}`)" :alt="`${item.name}`" style="height: 100%;">
+                    </div>
+                    <div class="items-info">
+                        <h2>{{ item.name }}</h2>
+                        <p><span style="font-weight: 600;">Thể loại:</span> {{ item.genre }}</p>
+                        <div class="item-info">
+                            <p><span style="font-weight: 600;">Thời lượng:</span> {{ item.duration }}</p>
+                            <p><span style="font-weight: 600;">Khởi chiếu:</span> {{ item.premiere }}</p>
+                        </div>
+                        <div class="items-showtimes">
+                            <select class="form-select" aria-label="Default select example" style="width: 50%;">
+                                <option selected>Chọn lịch chiếu phim</option>
+                                <option v-for="(item) in calendar" :key="item.value" :value="`${item.value}`">{{ item.title }}</option>
+                            </select>
+                            <div class="showtimes-btn">
+                                <button type="button" class="btn btn-primary" style="padding: 10px 30px;">Xem</button>
+                            </div>
                         </div>
                     </div>
                     <div class="item-options">
@@ -34,18 +44,58 @@
         </ul>
     </div>
 </main>
+<createNewFlims v-show="isCreateShow" @addFilms="addFilms" :isCreateShow="isCreateShow"/>
+<updateNewFlims v-show="isUpdateShow" @editFilms="editFilms" :isUpdateShow="isUpdateShow"/>
 </template>
 <script setup>
-import { ref } from 'vue';
+import { computed, ref} from 'vue';
+import { useStore } from 'vuex';
+import createNewFlims from './create-update/createNewFlims'
+import updateNewFlims from './create-update/updateNewFlims'
 
-const listTemp = ref([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+const store = useStore()
+const products = computed(() => store.getters['products']);
+
+const calendar = ref([
+    {
+        value: "T2",
+        title: "Thứ 2"
+    },
+    {
+        value: "T3",
+        title: "Thứ 3"
+    },
+    {
+        value: "T4",
+        title: "Thứ 4"
+    },
+    {
+        value: "T5",
+        title: "Thứ 5"
+    },
+    {
+        value: "T6",
+        title: "Thứ 6"
+    },
+    {
+        value: "T7",
+        title: "Thứ 7"
+    },
+    {
+        value: "CN",
+        title: "Chủ nhật"
+    },
+])
+
+let isCreateShow = ref(false)
+let isUpdateShow = ref(false)
 
 const addFilms = () => {
-    alert("add films")
+    isCreateShow.value = !isCreateShow.value
 }
 
 const editFilms = () => {
-    alert("edit films")
+    isUpdateShow.value = !isUpdateShow.value
 }
 
 const deleteFilms = () => {
@@ -108,28 +158,44 @@ main {
 
 .item-list .item-gr .item-img{
     height: 100%;
-    width: 250px;
-    background-color: aqua;
+    width: 210px;
+    display: block;
+    text-align: center;
 }
 
-.item-list .item-gr .item-info{
-    background-color: aquamarine;
+.item-list .item-gr .items-info{
     height: 100%;
-    width: calc(100% - 250px - 100px);
+    width: calc(100% - 210px - 50px);
+    display: flex;
+    flex-direction: column;
+    padding: 10px 5px 10px 10px;
 }
 
-.item-gr .item-info p {
-    margin: 0;
+.item-gr .items-info .item-info {
+    display: flex;
+    justify-content: space-between;
 }
 
-.item-gr .item-info .item-showtimes {
+.item-gr .items-info .item-info > p {
+    flex-basis: 50%;
+}
+
+.item-gr .items-info .items-showtimes {
     height: 50%;
-    background-color: azure;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+
+.items-info .items-showtimes .showtimes-btn{
+    width: 50%;
+    display: flex;
+    justify-content: center;
 }
 
 .item-list .item-gr .item-options{
     height: 100%;
-    width: 100px;
+    width: 50px;
 }
 
 .item-gr .item-option {

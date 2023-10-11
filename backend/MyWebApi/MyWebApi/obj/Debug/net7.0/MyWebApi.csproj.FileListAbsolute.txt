@@ -74,3 +74,4 @@ D:\My workspace data\Advanced_Website\backend\MyWebApi\MyWebApi\obj\Debug\net7.0
 D:\My workspace data\Advanced_Website\backend\MyWebApi\MyWebApi\obj\Debug\net7.0\MyWebApi.pdb
 D:\My workspace data\Advanced_Website\backend\MyWebApi\MyWebApi\obj\Debug\net7.0\MyWebApi.genruntimeconfig.cache
 D:\My workspace data\Advanced_Website\backend\MyWebApi\MyWebApi\obj\Debug\net7.0\ref\MyWebApi.dll
+D:\My workspace data\Advanced_Website\backend\MyWebApi\MyWebApi\bin\Debug\net7.0\MyWebApi.staticwebassets.runtime.json

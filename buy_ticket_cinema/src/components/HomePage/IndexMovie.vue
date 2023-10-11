@@ -56,8 +56,6 @@ export default {
         SwiperSlide
     },
 
-    watch: {},
-
     computed: {
         ...mapGetters(['products']),
         filterdProduct() {
@@ -69,12 +67,14 @@ export default {
             }
         },
     },
+
     data() {
         return {
             selects,
             isActive: 0,
         }
     },
+    
     methods: {
         changeSelect: function (index) {
             this.isActive = index

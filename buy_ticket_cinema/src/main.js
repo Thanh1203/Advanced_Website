@@ -2,9 +2,9 @@ import { createApp } from "vue";
 import App from "./App.vue";
 
 //*base css
-import "./CSS/base.css";
+import "./style/base.css";
 //* responsive css
-import "./CSS/responsive.css";
+import "./style/responsive.css";
 //* icon
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
