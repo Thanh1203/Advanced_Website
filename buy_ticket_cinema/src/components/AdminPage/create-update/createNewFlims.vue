@@ -5,20 +5,20 @@
         <form class="form-create">
             <div class="mb-3">
                 <label for="nameFlim" class="form-label">Tên phim</label>
-                <input type="text" class="form-control" name="nameFlim" v-model="newFlim.tenPhim">
+                <input type="text" class="form-control" name="nameFlim" v-model="newFlim.movieName">
             </div>
             <div class="mb-3">
                 <label for="typeFlim" class="form-label">Thể loại</label>
-                <input type="text" class="form-control" name="typeFlim" v-model="newFlim.theLoai">
+                <input type="text" class="form-control" name="typeFlim" v-model="newFlim.movieGenre">
             </div>
             <div class="row mb-3">
                 <div class="col">
                     <label for="durationFlim" class="form-label">Thời lượng (phút)</label>
-                    <input type="number" class="form-control" name="durationFlim" v-model="newFlim.thoiLuong" min="0">
+                    <input type="number" class="form-control" name="durationFlim" v-model="newFlim.movieDuration" min="0">
                 </div>
                 <div class="col">
                     <label for="premiereFlim" class="form-label">Ngày khởi chiếu</label>
-                    <input type="Date" class="form-control" name="premiereFlim" v-model="newFlim.khoiChieu">
+                    <input type="Date" class="form-control" name="premiereFlim" v-model="newFlim.movieOgDate">
                 </div>
             </div>
             <div class="mb-3">
@@ -26,7 +26,7 @@
                 <input class="form-control" type="file" @change="getImg($event)" accept="image/*">
             </div>
             <div class="mb-3">
-                <select class="form-select" aria-label="Default select example" v-model="newFlim.statusFlim">
+                <select class="form-select" aria-label="Default select example" v-model="newFlim.movieStatus">
                     <option value="1" selected>Đang khởi chiếu</option>
                     <option value="2">Sắp khởi chiếu</option>
                 </select>   
@@ -50,16 +50,16 @@ const closeCreate = () => {
 };
 
 let newFlim = ref({
-    tenPhim: "",
-    imgName: "",
-    theLoai: "",
-    thoiLuong: "",
-    khoiChieu: "",
-    statusFlim: "1",    
+    movieName: "",
+    movieGenre: "",
+    movieDuration: "",
+    movieOgDate: "",
+    movieImage: "",
+    movieStatus: "1",    
 })
 
 const getImg = (event) => {
-    newFlim.value.imgName = event.target.files[0].name  ;
+    newFlim.value.movieImage = event.target.files[0].name;
 }
 
 

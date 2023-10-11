@@ -8,13 +8,13 @@ function formatDate(date) {
 
 function mapProduct(item) {
   return {
-    id: item.idPhim,
-    name: item.tenPhim,
-    img: item.imgName,
-    genre: item.theLoai,
-    duration: item.thoiLuong,
-    premiere: formatDate(item.khoiChieu),
-    status: item.statusFlim,
+    id: item.idMovie,
+    name: item.movieName,
+    img: item.movieImage,
+    genre: item.movieGenre,
+    duration: item.movieDuration,
+    premiere: formatDate(item.movieOgDate),
+    status: item.movieStatus,
   };
 }
 
