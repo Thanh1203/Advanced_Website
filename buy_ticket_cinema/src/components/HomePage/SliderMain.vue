@@ -1,20 +1,20 @@
 <template>
-    <div id="slider">
-        <Swiper :modules="module" navigation :loop="true" :pagination="{ clickable: true }"
-        :autoplay="{
-            delay: 3000,
-            disableOnInteraction: false,
-        }" :speed="1000">
-            <SwiperSlide v-for="(photo, index) in photos" :key="index"
-            :style="{
-                'background-image': `url(${require(`../../assets/${photo.img}`)})`,
-                'background-size': 'cover',
-                'background-position': 'center',
-            }" class="slide-swiperslide">
-                <img :src="require(`@/assets/${photo.img}`)" alt="">
-            </SwiperSlide>
-        </Swiper>
-    </div>
+<div id="slider">
+    <Swiper :modules="module" navigation :watchSlidesProgress="true" :loop="true" :pagination="{ clickable: true }"
+    :autoplay="{
+        delay: 3000,
+        disableOnInteraction: false,
+    }" :speed="1000">
+        <SwiperSlide v-for="(photo) in slidePhotos" :key="photo.id"
+        :style="{
+            'background-image': `url(${require(`../../assets/${photo.img}`)})`,
+            'background-size': 'cover',
+            'background-position': 'center',
+        }" class="slide-swiperslide">
+            <img :src="require(`@/assets/${photo.img}`)" alt="">
+        </SwiperSlide>
+    </Swiper>
+</div>
 </template>
 <script>
 import { mapGetters } from 'vuex';
@@ -27,9 +27,8 @@ import 'swiper/css/pagination';
 
 export default {
     computed: {
-        ...mapGetters(['photos']),
+        ...mapGetters(['slidePhotos']),
     },
-
     components: {
         Swiper,
         SwiperSlide
@@ -41,6 +40,7 @@ export default {
         }
     },
 }
+
 </script>
 <style> 
 

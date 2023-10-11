@@ -27,35 +27,36 @@
 </div>
 </template>
 <script setup>
-import axios from 'axios';
-import { onMounted, ref } from 'vue';
+// import axios from 'axios';
+import { ref } from 'vue';
 import router from '@/Router/router';
 
 
 let username = ref('')
 let password = ref('')
 
-const courseApi = "http://localhost:5264/Login-Admin";
-let logindata = []
+// const courseApi = "http://localhost:5264/Login-Admin";
+// let logindata = []
 
-onMounted(() => {
-    axios.get(courseApi)
-        .then(response => {
-            logindata = response.data
-        })
-})
+// onMounted(() => {
+//     axios.get(courseApi)
+//         .then(response => {
+//             logindata = response.data
+//         })
+// })
 
 const loginadmin = () => {
-    if (handleLogin()) {
-        router.push("/Home-Admin")
-    }
+    // if (handleLogin()) {
+    //     router.push("/Home-Admin")
+    // }
+    router.push("/Home-Admin")
 }
 
-function handleLogin() {
-    return logindata.some(item => {
-        return item.taikhoan == username.value && item.matkhau == password.value
-    })
-}
+// function handleLogin() {
+//     return logindata.some(item => {
+//         return item.taikhoan == username.value && item.matkhau == password.value
+//     })
+// }
 </script>
 <style scoped>
 #LoginAdmin {
