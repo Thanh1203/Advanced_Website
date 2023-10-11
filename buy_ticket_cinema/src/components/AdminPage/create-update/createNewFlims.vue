@@ -51,15 +51,15 @@ const closeCreate = () => {
 
 let newFlim = ref({
     tenPhim: "",
-    imgName: null,
+    imgName: "",
     theLoai: "",
     thoiLuong: "",
     khoiChieu: "",
-    statusFlim: "1",
+    statusFlim: "1",    
 })
 
 const getImg = (event) => {
-    newFlim.value.imgName = JSON.stringify(event.target.files[0])
+    newFlim.value.imgName = event.target.files[0].name  ;
 }
 
 

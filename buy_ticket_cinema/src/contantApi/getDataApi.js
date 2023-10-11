@@ -1,10 +1,5 @@
 import axios from "axios";
-import {
-  filmsCousreApi,
-  showTimesCourseApi,
-  eventCourseApi,
-  slideCourseApi,
-} from "./contantApi";
+import { filmsCousreApi, eventCourseApi, slideCourseApi } from "./contantApi";
 
 function formatDate(date) {
   const result = new Date(date);
@@ -42,11 +37,10 @@ function mapSlide(item) {
 
 export async function getApiData() {
   try {
-    const [products, showTimes, events, slidePhotos] = await Promise.all([
+    const [products, events, slidePhotos] = await Promise.all([
       axios
         .get(filmsCousreApi)
         .then((response) => response.data.map((item) => mapProduct(item))),
-      axios.get(showTimesCourseApi).then((response) => response.data),
       axios
         .get(eventCourseApi)
         .then((response) => response.data.map((item) => mapEvents(item))),
@@ -54,7 +48,7 @@ export async function getApiData() {
         .get(slideCourseApi)
         .then((response) => response.data.map((item) => mapSlide(item))),
     ]);
-    return { products, showTimes, events, slidePhotos };
+    return { products, events, slidePhotos };
   } catch (error) {
     console.error(error);
   }
