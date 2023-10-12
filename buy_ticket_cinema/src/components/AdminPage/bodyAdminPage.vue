@@ -12,7 +12,7 @@
             <li v-for="(item) in products" :key="item.id" class="item-list fl-jc-center ">
                 <div class="item-gr">
                     <div class="item-img">
-                        <img :src="require(`@/assets/${item.img}`)" :alt="`${item.name}`" style="height: 100%;">
+                        <img :src="`${item.img}`" :alt="`${item.name}`" style="height: 100%;">
                     </div>
                     <div class="items-info">
                         <h2>{{ item.name }}</h2>
@@ -137,9 +137,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-top: 1px solid rgb(80, 80, 80);
-    border-left: 1px solid rgb(80, 80, 80);
-    border-right: 1px solid rgb(80, 80, 80);
+    border: 1px solid rgb(80, 80, 80);
 }
 
 .main-container .list .item-list {

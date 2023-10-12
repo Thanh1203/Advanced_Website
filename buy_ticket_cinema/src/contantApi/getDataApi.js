@@ -1,5 +1,5 @@
 import axios from "axios";
-import { filmsCousreApi, eventCourseApi, slideCourseApi } from "./contantApi";
+import { filmsCousreApi } from "./contantApi";
 
 function formatDate(date) {
   const result = new Date(date);
@@ -18,37 +18,31 @@ function mapProduct(item) {
   };
 }
 
-function mapEvents(item) {
-  return {
-    id: item.idEvent,
-    name: item.eventname,
-    img: item.eventimage,
-    link: item.eventlink,
-  };
-}
+// function mapEvents(item) {
+//   return {
+//     id: item.idEvent,
+//     name: item.eventname,
+//     img: item.eventimage,
+//     link: item.eventlink,
+//   };
+// }
 
-function mapSlide(item) {
-  return {
-    id: item.idSlide,
-    name: item.slideName,
-    img: item.slideImage,
-  };
-}
+// function mapSlide(item) {
+//   return {
+//     id: item.idSlide,
+//     name: item.slideName,
+//     img: item.slideImage,
+//   };
+// }
 
 export async function getApiData() {
   try {
-    const [products, events, slidePhotos] = await Promise.all([
+    const [products] = await Promise.all([
       axios
         .get(filmsCousreApi)
         .then((response) => response.data.map((item) => mapProduct(item))),
-      axios
-        .get(eventCourseApi)
-        .then((response) => response.data.map((item) => mapEvents(item))),
-      axios
-        .get(slideCourseApi)
-        .then((response) => response.data.map((item) => mapSlide(item))),
     ]);
-    return { products, events, slidePhotos };
+    return { products };
   } catch (error) {
     console.error(error);
   }

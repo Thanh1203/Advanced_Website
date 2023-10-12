@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Images\\peakpx (1).jpg",
+      "PackagePath": "staticwebassets\\Images\\peakpx (1).jpg"
+    },
+    {
+      "Id": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Images\\test.jpg",
+      "PackagePath": "staticwebassets\\Images\\test.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.BeApiCRUD.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.BeApiCRUD.props",
+      "PackagePath": "build\\BeApiCRUD.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.BeApiCRUD.props",
+      "PackagePath": "buildMultiTargeting\\BeApiCRUD.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.BeApiCRUD.props",
+      "PackagePath": "buildTransitive\\BeApiCRUD.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

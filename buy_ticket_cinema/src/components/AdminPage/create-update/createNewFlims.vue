@@ -54,21 +54,39 @@ let newFlim = ref({
     movieGenre: "",
     movieDuration: "",
     movieOgDate: "",
-    movieImage: "",
+    movieImgFile: "",
     movieStatus: "1",    
 })
 
 const getImg = (event) => {
-    newFlim.value.movieImage = event.target.files[0].name;
+    newFlim.value.movieImgFile = event.target.files[0];
 }
 
 
 async function createFlim() {
-    await axios.post(filmsCousreApi, newFlim.value).then(response => {
-        console.log(response.data);
-    }).catch(error => {
-        console.log(error);
-    })
+    const formData = new FormData();
+    formData.append('movieName', newFlim.value.movieName);
+    formData.append('movieGenre', newFlim.value.movieGenre);
+    formData.append('movieDuration', newFlim.value.movieDuration);
+    formData.append('movieOgDate', newFlim.value.movieOgDate);
+    formData.append('movieStatus', newFlim.value.movieStatus);
+    formData.append('movieImgFile', newFlim.value.movieImgFile);
+    try {
+        await axios.post(filmsCousreApi, formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        }).then(() => {
+            newFlim.value.movieName = ""
+            newFlim.value.movieGenre = ""
+            newFlim.value.movieDuration = ""
+            newFlim.value.movieOgDate = ""
+            newFlim.value.movieStatus = ""
+            newFlim.value.movieImgFile = 1
+        });
+    } catch (error) {
+        console.error(error);
+    }
 }
 
 

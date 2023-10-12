@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "6oUF8HlG8fQDu1H5FXvIXbtPiWJduVvVnAKbSJTAKMY=",
+  "Source": "BeApiCRUD",
+  "BasePath": "_content/BeApiCRUD",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "BeApiCRUD\\wwwroot",
+      "Source": "BeApiCRUD",
+      "ContentRoot": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\",
+      "BasePath": "_content/BeApiCRUD",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}
