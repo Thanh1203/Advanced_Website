@@ -1,9 +1,18 @@
 import axios from "axios";
-import { filmsCousreApi } from "./contantApi";
+import { eventsCousreApi, filmsCousreApi, slidesCourseApi } from "./contantApi";
 
-function formatDate(date) {
-  const result = new Date(date);
-  return `${result.getDay()}/${result.getMonth()}/${result.getFullYear()}`;
+function formatDate(inputDate) {
+  const date = new Date(inputDate);
+  const day = date.getDate();
+  const month = date.getMonth() + 1; // Lưu ý rằng tháng trong JavaScript bắt đầu từ 0, nên bạn phải cộng thêm 1.
+  const year = date.getFullYear();
+
+  // Đảm bảo rằng chúng ta có dạng "dd/mm/yyyy" bằng cách thêm số 0 nếu cần
+  const formattedDay = day < 10 ? `0${day}` : day;
+  const formattedMonth = month < 10 ? `0${month}` : month;
+
+  const formattedDate = `${formattedDay}/${formattedMonth}/${year}`;
+  return formattedDate;
 }
 
 function mapProduct(item) {
@@ -18,31 +27,37 @@ function mapProduct(item) {
   };
 }
 
-// function mapEvents(item) {
-//   return {
-//     id: item.idEvent,
-//     name: item.eventname,
-//     img: item.eventimage,
-//     link: item.eventlink,
-//   };
-// }
+function mapEvents(item) {
+  return {
+    id: item.idEvent,
+    name: item.eventname,
+    img: item.eventimage,
+    link: item.eventlink,
+  };
+}
 
-// function mapSlide(item) {
-//   return {
-//     id: item.idSlide,
-//     name: item.slideName,
-//     img: item.slideImage,
-//   };
-// }
+function mapSlide(item) {
+  return {
+    id: item.idSlide,
+    name: item.slideName,
+    img: item.slideImage,
+  };
+}
 
 export async function getApiData() {
   try {
-    const [products] = await Promise.all([
+    const [products, events, slidePhotos] = await Promise.all([
       axios
         .get(filmsCousreApi)
         .then((response) => response.data.map((item) => mapProduct(item))),
+      axios
+        .get(eventsCousreApi)
+        .then((response) => response.data.map((item) => mapEvents(item))),
+      axios
+        .get(slidesCourseApi)
+        .then((respone) => respone.data.map((item) => mapSlide(item))),
     ]);
-    return { products };
+    return { products, events, slidePhotos };
   } catch (error) {
     console.error(error);
   }

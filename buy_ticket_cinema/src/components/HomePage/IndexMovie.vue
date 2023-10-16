@@ -19,14 +19,17 @@
                     <div class="product_group">
                         <img :src="`${product.img}`" alt="">
                         <div class="product_info">
-                            <div class="product-name"><p>{{ product.name }}</p></div>
+                            <div class="product-name"><p>{{ product.name.toUpperCase() }}</p></div>
                             <div class="box-info">
                                 <p><strong>Thể Loại:</strong> {{ product.genre }}</p>
                                 <p><strong>Thời lượng:</strong> {{ product.duration }}</p>
                                 <p><strong>Khởi chiếu: </strong>{{ product.premiere }}</p>
                             </div>
                         </div>
-                        <button type="button" class="btn buy-btn" @click="buyTicket">BUY TICKET !</button>
+                        <div class="product_btn">
+                            <!-- //todo lượt xem -->
+                            <button type="button" class="btn buy-btn" @click="buyTicket">BUY TICKET !</button>
+                        </div>
                     </div>
                 </SwiperSlide>
             </Swiper>
@@ -215,7 +218,6 @@ export default {
 .buy-btn
 {
     background-color: rgb(218, 41, 28);
-    border: 1px solid white;
     color: white;
 }
 

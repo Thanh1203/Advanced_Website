@@ -7,11 +7,11 @@
     }" :speed="1000">
         <SwiperSlide v-for="(photo) in slidePhotos" :key="photo.id"
         :style="{
-            'background-image': `url(${require(`../../assets/${photo.img}`)})`,
+            'background-image': `url(${photo.img})`,
             'background-size': 'cover',
             'background-position': 'center',
         }" class="slide-swiperslide">
-            <img :src="require(`@/assets/${photo.img}`)" alt="">
+            <img :src="`${photo.img}`" alt="">
         </SwiperSlide>
     </Swiper>
 </div>
@@ -72,12 +72,12 @@ export default {
 .swiper-pagination-bullet{
     height: 15px;
     width: 15px;
-    border: 1px solid greenyellow;
+    border: 1px solid rgb(138, 141, 143);
     opacity: .5 !important;
     background-color: black;
 }
 
 .swiper-pagination-bullet-active{
-    background-color: greenyellow !important;
+    background-color: rgb(218, 41, 28) !important;
 }
 </style>

@@ -7,5 +7,7 @@ namespace BeApiCRUD
     {
         public MyDbContext(DbContextOptions options) : base(options) { }
         public DbSet<Movies> Movies { get; set; }
+        public DbSet<EventsInfo> EventsInfos { get; set; }
+        public DbSet<SlideMovie> SlideMovies { get; set; }
     }
 }

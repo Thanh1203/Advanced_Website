@@ -16,8 +16,8 @@
             <div class="search_result" v-if="searching !== null && searching !== ''">
                 <ul>
                     <li v-for="(product, index) in filterProduct" :key="index" class="product_search">
-                        <img :src="require(`@/assets/${product.img}`)" alt="">
-                        <p>{{ product.name }}</p>
+                        <img :src="`${ product.img }`" alt="">
+                        <p style="padding-left: 10px;">{{ product.name.toUpperCase() }}</p>
                     </li>
                     <li v-if="filterProduct.length === 0" class="product_search">
                         <p style="color: red;">Phim đang tìm kiếm không tồn tại!</p>

@@ -32,7 +32,7 @@
                 </select>   
             </div>
             <div class="col-12">
-                <button class="btn btn-primary" type="submit" @click.prevent="createFlim">Thêm mới phim</button>
+                <button class="btn btn-primary" type="submit" @click.prevent="createFlim">Add new movie</button>
             </div>
         </form>
     </div>
@@ -41,7 +41,10 @@
 <script setup>
 import { defineEmits, ref} from 'vue';
 import axios from "axios";
-import { filmsCousreApi } from '../../../contantApi/contantApi'
+import { useStore } from 'vuex';
+import { filmsCousreApi } from '@/contantApi/contantApi';
+
+const store = useStore()
 
 const emit = defineEmits(['addFilms']);
 
@@ -55,13 +58,12 @@ let newFlim = ref({
     movieDuration: "",
     movieOgDate: "",
     movieImgFile: "",
-    movieStatus: "1",    
+    movieStatus: 1,    
 })
 
 const getImg = (event) => {
     newFlim.value.movieImgFile = event.target.files[0];
 }
-
 
 async function createFlim() {
     const formData = new FormData();
@@ -81,15 +83,15 @@ async function createFlim() {
             newFlim.value.movieGenre = ""
             newFlim.value.movieDuration = ""
             newFlim.value.movieOgDate = ""
-            newFlim.value.movieStatus = ""
-            newFlim.value.movieImgFile = 1
+            newFlim.value.movieStatus = 1
+            newFlim.value.movieImgFile = ""
+        }).then(() => {
+            store.dispatch('loadProducts')
         });
     } catch (error) {
         console.error(error);
     }
 }
-
-
 
 </script>
 <style scoped>

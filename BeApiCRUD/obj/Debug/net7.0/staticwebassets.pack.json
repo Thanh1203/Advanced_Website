@@ -1,12 +1,120 @@
 {
   "Files": [
     {
-      "Id": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Images\\peakpx (1).jpg",
-      "PackagePath": "staticwebassets\\Images\\peakpx (1).jpg"
+      "Id": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Events\\event1.jpg",
+      "PackagePath": "staticwebassets\\Events\\event1.jpg"
     },
     {
-      "Id": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Images\\test.jpg",
-      "PackagePath": "staticwebassets\\Images\\test.jpg"
+      "Id": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Events\\event2.jpg",
+      "PackagePath": "staticwebassets\\Events\\event2.jpg"
+    },
+    {
+      "Id": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Events\\event3.jpg",
+      "PackagePath": "staticwebassets\\Events\\event3.jpg"
+    },
+    {
+      "Id": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Events\\event4.jpg",
+      "PackagePath": "staticwebassets\\Events\\event4.jpg"
+    },
+    {
+      "Id": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Events\\event5.jpg",
+      "PackagePath": "staticwebassets\\Events\\event5.jpg"
+    },
+    {
+      "Id": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Events\\event6.jpg",
+      "PackagePath": "staticwebassets\\Events\\event6.jpg"
+    },
+    {
+      "Id": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Events\\event7.jpg",
+      "PackagePath": "staticwebassets\\Events\\event7.jpg"
+    },
+    {
+      "Id": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Images\\11186_103_100002.jpg",
+      "PackagePath": "staticwebassets\\Images\\11186_103_100002.jpg"
+    },
+    {
+      "Id": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Images\\11206_103_100003.jpg",
+      "PackagePath": "staticwebassets\\Images\\11206_103_100003.jpg"
+    },
+    {
+      "Id": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Images\\11221_103_100004.jpg",
+      "PackagePath": "staticwebassets\\Images\\11221_103_100004.jpg"
+    },
+    {
+      "Id": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Images\\11224_103_100001.jpg",
+      "PackagePath": "staticwebassets\\Images\\11224_103_100001.jpg"
+    },
+    {
+      "Id": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Images\\11225_103_100002.jpg",
+      "PackagePath": "staticwebassets\\Images\\11225_103_100002.jpg"
+    },
+    {
+      "Id": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Images\\11229_103_100001.jpg",
+      "PackagePath": "staticwebassets\\Images\\11229_103_100001.jpg"
+    },
+    {
+      "Id": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Images\\11231_103_100002.jpg",
+      "PackagePath": "staticwebassets\\Images\\11231_103_100002.jpg"
+    },
+    {
+      "Id": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Images\\11233_103_100002.jpg",
+      "PackagePath": "staticwebassets\\Images\\11233_103_100002.jpg"
+    },
+    {
+      "Id": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Images\\11236_103_100001.jpg",
+      "PackagePath": "staticwebassets\\Images\\11236_103_100001.jpg"
+    },
+    {
+      "Id": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Images\\11238_103_100003.jpg",
+      "PackagePath": "staticwebassets\\Images\\11238_103_100003.jpg"
+    },
+    {
+      "Id": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Images\\11245_103_100001.jpg",
+      "PackagePath": "staticwebassets\\Images\\11245_103_100001.jpg"
+    },
+    {
+      "Id": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Images\\11275_103_100001.jpg",
+      "PackagePath": "staticwebassets\\Images\\11275_103_100001.jpg"
+    },
+    {
+      "Id": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Images\\11278_103_100002.jpg",
+      "PackagePath": "staticwebassets\\Images\\11278_103_100002.jpg"
+    },
+    {
+      "Id": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Slides\\11186_105_100001.jpg",
+      "PackagePath": "staticwebassets\\Slides\\11186_105_100001.jpg"
+    },
+    {
+      "Id": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Slides\\11206_105_100007.jpg",
+      "PackagePath": "staticwebassets\\Slides\\11206_105_100007.jpg"
+    },
+    {
+      "Id": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Slides\\11221_105_100008.jpg",
+      "PackagePath": "staticwebassets\\Slides\\11221_105_100008.jpg"
+    },
+    {
+      "Id": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Slides\\11224_104_100002.jpg",
+      "PackagePath": "staticwebassets\\Slides\\11224_104_100002.jpg"
+    },
+    {
+      "Id": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Slides\\11225_105_100001.jpg",
+      "PackagePath": "staticwebassets\\Slides\\11225_105_100001.jpg"
+    },
+    {
+      "Id": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Slides\\11229_105_100007.jpg",
+      "PackagePath": "staticwebassets\\Slides\\11229_105_100007.jpg"
+    },
+    {
+      "Id": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Slides\\11231_105_100007.jpg",
+      "PackagePath": "staticwebassets\\Slides\\11231_105_100007.jpg"
+    },
+    {
+      "Id": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Slides\\11233_105_100001.jpg",
+      "PackagePath": "staticwebassets\\Slides\\11233_105_100001.jpg"
+    },
+    {
+      "Id": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Slides\\11245_105_100001.jpg",
+      "PackagePath": "staticwebassets\\Slides\\11245_105_100001.jpg"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.BeApiCRUD.Microsoft.AspNetCore.StaticWebAssets.props",

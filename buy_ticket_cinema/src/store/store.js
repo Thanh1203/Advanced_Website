@@ -6,11 +6,17 @@ export const store = createStore({
     slidePhotos: [],
     products: [],
     events: [],
+    infoMovieUpdate: [],
+    infoEventUpdate: [],
+    infoSlideUpdate: [],
   },
   getters: {
     slidePhotos: (state) => state.slidePhotos,
     products: (state) => state.products,
     events: (state) => state.events,
+    infoMovieUpdate: (state) => state.infoMovieUpdate,
+    infoEventUpdate: (state) => state.infoEventUpdate,
+    infoSlideUpdate: (state) => state.infoSlideUpdate,
   },
   mutations: {
     dumpDataProducts(state, data) {
@@ -21,6 +27,15 @@ export const store = createStore({
     },
     dumpDataSlide(state, data) {
       state.slidePhotos = data;
+    },
+    setInfoMovieUpdate(state, data) {
+      state.infoMovieUpdate = data;
+    },
+    setInfoEventUpdate(state, data) {
+      state.infoEventUpdate = data;
+    },
+    setInfoSlideUpdate(state, data) {
+      state.infoSlideUpdate = data;
     },
   },
   actions: {

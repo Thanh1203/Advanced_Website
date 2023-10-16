@@ -24,7 +24,7 @@ namespace BeApiCRUD.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateMoives([FromForm] MoviesFile movie)
+        public async Task<IActionResult> CreateMoive([FromForm] MoviesFile movie)
         {
             try
             {
@@ -37,7 +37,7 @@ namespace BeApiCRUD.Controllers
                     MovieOgDate = movie.MovieOgDate,
                     MovieStatus = movie.MovieStatus,
                 };
-                if (movie.MovieImgfile != null && movie.MovieImgfile?.Length > 0)
+                if (movie.MovieImgfile != null)
                 {
                     var path = Path.Combine(rootAddress, "Images", movie.MovieImgfile.FileName);
                     using (var stream = System.IO.File.Create(path))
@@ -48,7 +48,7 @@ namespace BeApiCRUD.Controllers
                 }
                 else
                 {
-                    newMovie.MovieName = "";
+                    newMovie.MovieImage = "";
                 }
                 _context.Add(newMovie);
                 _context.SaveChanges();
@@ -60,39 +60,79 @@ namespace BeApiCRUD.Controllers
             }
         }
 
-        [HttpPut("{id}")]
-        public IActionResult UpdateFlim([FromForm] int id, MoviesFile movie)
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> UpdateMovie([FromForm] MoviesFile movie, int id)
         {
-            try
-            {
-                var upMovie = _context.Movies.SingleOrDefault(item => item.IdMovie == id);
-                if (upMovie != null)
-                {
-                    if (!string.IsNullOrEmpty(movie.MovieGenre))
-                        upMovie.MovieGenre = movie.MovieGenre;
-                    if (movie.MovieDuration.HasValue)
-                        upMovie.MovieDuration = movie.MovieDuration;
-                    if (movie.MovieOgDate.HasValue)
-                        upMovie.MovieOgDate = movie.MovieOgDate;
-                    if (movie.MovieStatus.HasValue)
-                        upMovie.MovieStatus = movie.MovieStatus;
+            var updateMovie = _context.Movies.SingleOrDefault(item => item.IdMovie == id);
+            var rootAddress = _environment.WebRootPath;
 
-                    if (movie.MovieImgfile != null && movie.MovieImgfile.Length > 0)
-                    {
-                        var rootAddress = _environment.WebRootPath;
-                        var path = Path.Combine(rootAddress, "Images", movie.MovieImgfile.FileName);
-                        using (var stream = System.IO.File.Create(path))
-                        {
-                            movie.MovieImgfile.CopyToAsync(stream);
-                        }
-                        upMovie.MovieImage = movie.MovieImgfile.FileName; ;
-                    }
-                    _context.SaveChanges();
-                    return Ok(upMovie);
-                }
-                else { return NotFound(); }
+            if (updateMovie == null)
+            {
+                return NotFound();
             }
-            catch { return BadRequest(); }
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (movie.MovieName != null)
+            {
+                updateMovie.MovieName = movie.MovieName;
+            }
+
+            if (movie.MovieGenre != null)
+            {
+                updateMovie.MovieGenre = movie.MovieGenre;
+            }
+
+            if (movie.MovieDuration != null)
+            {
+                updateMovie.MovieDuration = movie.MovieDuration;
+            }
+
+            if (movie.MovieOgDate != null)
+            {
+                updateMovie.MovieOgDate = movie.MovieOgDate;
+            }
+
+            if (movie.MovieStatus != null)
+            {
+                updateMovie.MovieStatus = movie.MovieStatus;
+            }
+
+            if (movie.MovieImgfile != null && movie.MovieImgfile.Length > 0)
+            {
+                var path = Path.Combine(rootAddress, "Images", movie.MovieImgfile.FileName);
+                using (var stream = System.IO.File.Create(path))
+                {
+                    await movie.MovieImgfile.CopyToAsync(stream);
+                }
+                updateMovie.MovieImage = "http://localhost:5163/Images/" + movie.MovieImgfile.FileName;
+            }
+
+            _context.SaveChanges();
+            return Ok(updateMovie);
+        }
+
+
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteMovie(int id)
+        {
+            var deMovie = _context.Movies.SingleOrDefault(item => item.IdMovie == id);
+            if (deMovie != null)
+            {
+                string? strName = deMovie.MovieImage;
+                string[]? strArray = strName?.Split('/');
+                string? lastElement = strArray?.LastOrDefault();
+                var path = Path.Combine(_environment.WebRootPath, "Images", lastElement ?? "default-value");
+                System.IO.File.Delete(path);
+                _context.Movies.Remove(deMovie);
+                await _context.SaveChangesAsync();
+                return Ok(deMovie);
+            }
+            else { return NotFound(); }
         }
     }
 }
