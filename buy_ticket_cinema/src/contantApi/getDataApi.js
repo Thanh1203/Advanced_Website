@@ -44,20 +44,34 @@ function mapSlide(item) {
   };
 }
 
-export async function getApiData() {
+export async function getApiDataMovie() {
   try {
-    const [products, events, slidePhotos] = await Promise.all([
-      axios
-        .get(filmsCousreApi)
-        .then((response) => response.data.map((item) => mapProduct(item))),
-      axios
-        .get(eventsCousreApi)
-        .then((response) => response.data.map((item) => mapEvents(item))),
-      axios
-        .get(slidesCourseApi)
-        .then((respone) => respone.data.map((item) => mapSlide(item))),
-    ]);
-    return { products, events, slidePhotos };
+    const products = await axios
+      .get(filmsCousreApi)
+      .then((response) => response.data.map((item) => mapProduct(item)));
+    return products;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export async function getApiDataEvent() {
+  try {
+    const events = await axios
+      .get(eventsCousreApi)
+      .then((data) => data.data.map((item) => mapEvents(item)));
+    return events;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export async function getApiDataSlide() {
+  try {
+    const slidePhotos = await axios
+      .get(slidesCourseApi)
+      .then((data) => data.data.map((item) => mapSlide(item)));
+    return slidePhotos;
   } catch (error) {
     console.error(error);
   }

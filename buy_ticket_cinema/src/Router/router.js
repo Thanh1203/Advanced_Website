@@ -15,24 +15,24 @@ const routes = [
     component: HomeUser,
   },
   {
-    path: "/Login",
+    path: "/login",
     component: LoginComponentVue,
   },
   {
-    path: "/Register",
+    path: "/register",
     component: RegisterComponentVue,
   },
   {
-    path: "/Buy_ticket",
+    path: "/buy_ticket",
     component: BuyTicketVue,
   },
   //* Admin
   {
-    path: "/Login-Admin",
+    path: "/login-admin",
     component: PageLoginAdminVue,
   },
   {
-    path: "/Home-Admin",
+    path: "/home-admin",
     component: HomeAdminVue,
   },
 ];

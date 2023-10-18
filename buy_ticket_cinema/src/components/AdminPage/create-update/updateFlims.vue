@@ -40,15 +40,14 @@
 </template>
 <script setup>
 import axios from 'axios';
-import {computed, defineEmits, ref, watch } from 'vue';
+import {computed, ref, watch } from 'vue';
 import { useStore } from 'vuex';
 import { filmsCousreApi } from '@/contantApi/contantApi';
 
-const emit = defineEmits(['editFilms']);
 const store = useStore()
 
 const closeUpdate = () => {
-    emit('editFilms');
+    store.commit("setIsEditMovie", false)
 };
 
 const getFlimUpdate = computed(() => store.getters['infoMovieUpdate'])
@@ -130,8 +129,8 @@ async function btnUpdate() {
 
 .update-container .close-update {
     position: absolute;
-    right: 1%;
-    top: 2%;
+    right: .7%;
+    top: 1%;
     z-index: 3;
 }
 

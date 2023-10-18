@@ -93,8 +93,8 @@ async function createEvent() {
 
 .create-container .close-create {
     position: absolute;
-    right: 1%;
-    top: 2%;
+    right: .7%;
+    top: 1%;
     z-index: 3;
 }
 

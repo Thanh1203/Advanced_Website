@@ -21,14 +21,13 @@
 <script setup>
 import { slidesCourseApi } from '@/contantApi/contantApi';
 import axios from 'axios';
-import { computed, defineEmits, ref, watch } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { useStore } from 'vuex';
 
-const emit = defineEmits(['editSlide']);
 const store = useStore()
 
 const closeUpdate = () => {
-    emit('editSlide');
+    store.commit('setIsEditSlide', false)
 };
 
 const getSlideUpdate = computed(() => store.getters['infoSlideUpdate'])
@@ -99,8 +98,8 @@ async function btnUpdate() {
 
 .update-container .close-update {
     position: absolute;
-    right: 1%;
-    top: 2%;
+    right: .7%;
+    top: 1%;
     z-index: 3;
 }
 

@@ -25,14 +25,13 @@
 <script setup>
 import { eventsCousreApi } from '@/contantApi/contantApi';
 import axios from 'axios';
-import { computed, defineEmits, ref, watch } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { useStore } from 'vuex';
 
-const emit = defineEmits(['editEvent']);
 const store = useStore()
 
 const closeUpdate = () => {
-    emit('editEvent');
+    store.commit("setIsEditEvent", false)
 };
 const getEventUpdate = computed(() => store.getters['infoEventUpdate'])
 
@@ -104,8 +103,8 @@ async function btnUpdate() {
 
 .update-container .close-create {
     position: absolute;
-    right: 1%;
-    top: 2%;
+    right: .7%;
+    top: 1%;
     z-index: 3;
 }
 

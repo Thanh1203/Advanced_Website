@@ -1,4 +1,8 @@
-import { getApiData } from "@/contantApi/getDataApi";
+import {
+  getApiDataMovie,
+  getApiDataSlide,
+  getApiDataEvent,
+} from "@/contantApi/getDataApi";
 import { createStore } from "vuex";
 
 export const store = createStore({
@@ -9,6 +13,11 @@ export const store = createStore({
     infoMovieUpdate: [],
     infoEventUpdate: [],
     infoSlideUpdate: [],
+    infoShowtimeCreate: [],
+    reloadShowtime: false,
+    isEditMovie: false,
+    isEditEvent: false,
+    isEditSlide: false,
   },
   getters: {
     slidePhotos: (state) => state.slidePhotos,
@@ -17,6 +26,11 @@ export const store = createStore({
     infoMovieUpdate: (state) => state.infoMovieUpdate,
     infoEventUpdate: (state) => state.infoEventUpdate,
     infoSlideUpdate: (state) => state.infoSlideUpdate,
+    infoShowtimeCreate: (state) => state.infoShowtimeCreate,
+    reloadShowtime: (state) => state.reloadShowtime,
+    isEditMovie: (state) => state.isEditMovie,
+    isEditEvent: (state) => state.isEditEvent,
+    isEditSlide: (state) => state.isEditSlide,
   },
   mutations: {
     dumpDataProducts(state, data) {
@@ -37,12 +51,27 @@ export const store = createStore({
     setInfoSlideUpdate(state, data) {
       state.infoSlideUpdate = data;
     },
+    setInfoShowtimeCreate(state, data) {
+      state.infoShowtimeCreate = data;
+    },
+    setReloadShowtime(state, data) {
+      state.reloadShowtime = data;
+    },
+    setIsEditMovie(state, data) {
+      state.isEditMovie = data;
+    },
+    setIsEditEvent(state, data) {
+      state.isEditEvent = data;
+    },
+    setIsEditSlide(state, data) {
+      state.isEditSlide = data;
+    },
   },
   actions: {
     loadProducts({ commit }) {
       try {
-        getApiData().then((data) => {
-          commit("dumpDataProducts", data.products);
+        getApiDataMovie().then((data) => {
+          commit("dumpDataProducts", data);
         });
       } catch (error) {
         console.error(error);
@@ -50,8 +79,8 @@ export const store = createStore({
     },
     loadEvents({ commit }) {
       try {
-        getApiData().then((data) => {
-          commit("dumpDataEvents", data.events);
+        getApiDataEvent().then((data) => {
+          commit("dumpDataEvents", data);
         });
       } catch (error) {
         console.error(error);
@@ -59,8 +88,8 @@ export const store = createStore({
     },
     loadSlide({ commit }) {
       try {
-        getApiData().then((data) => {
-          commit("dumpDataSlide", data.slidePhotos);
+        getApiDataSlide().then((data) => {
+          commit("dumpDataSlide", data);
         });
       } catch (error) {
         console.error(error);
