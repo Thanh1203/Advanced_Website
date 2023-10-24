@@ -14,6 +14,7 @@ namespace BeApiCRUD.Model
         public DateTime? MovieOgDate { get; set; }
         public string? MovieImage { get; set; }
         public int? MovieStatus { get; set; }
+        public string? MovieContent { get; set; }
     }
 
     public class MoviesFile : Movies

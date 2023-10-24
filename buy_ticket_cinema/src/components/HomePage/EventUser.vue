@@ -1,12 +1,12 @@
 <template>
-    <div id="event">
-        <h1 class="title-event">event</h1>
-        <div class="event_container">
-            <div v-for="(item, index) in events" :key="index" :class="`event${index}`">
-                <a :href="`${item.link}`" class="txt_link"><img :src="`${item.img}`" alt=""></a> 
-            </div>
+<div id="event">
+    <h1 class="title-event">event</h1>
+    <div class="event_container">
+        <div v-for="(item, index) in events" :key="index" :class="`event${index}`">
+            <a :href="`${item.link}`" class="txt_link"><img :src="`${item.img}`" alt=""></a> 
         </div>
     </div>
+</div>
 </template>
 <script>
 import { mapGetters } from 'vuex';

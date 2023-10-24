@@ -29,6 +29,14 @@
       "PackagePath": "staticwebassets\\Events\\event7.jpg"
     },
     {
+      "Id": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Events\\main-qimg-d2733b7a3b858bc9f8aedc8e76d6d71a-lq.jpg",
+      "PackagePath": "staticwebassets\\Events\\main-qimg-d2733b7a3b858bc9f8aedc8e76d6d71a-lq.jpg"
+    },
+    {
+      "Id": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Events\\vue-js-3-fundamentals-with-the-composition-api.jpg",
+      "PackagePath": "staticwebassets\\Events\\vue-js-3-fundamentals-with-the-composition-api.jpg"
+    },
+    {
       "Id": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Images\\11186_103_100002.jpg",
       "PackagePath": "staticwebassets\\Images\\11186_103_100002.jpg"
     },
@@ -115,6 +123,10 @@
     {
       "Id": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Slides\\11245_105_100001.jpg",
       "PackagePath": "staticwebassets\\Slides\\11245_105_100001.jpg"
+    },
+    {
+      "Id": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Slides\\code.png",
+      "PackagePath": "staticwebassets\\Slides\\code.png"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.BeApiCRUD.Microsoft.AspNetCore.StaticWebAssets.props",

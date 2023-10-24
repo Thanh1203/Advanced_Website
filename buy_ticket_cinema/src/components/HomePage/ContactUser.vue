@@ -1,13 +1,13 @@
 <template>
-    <div id="contact">
-        <div class="contact_group">
-            <div class="contact_item" v-for="(item,index) in contactArr" :key="index">
-                <a :href="`${item.href}`">
-                    <img :src="require(`@/assets/${item.img}`)" :alt="`${item.alt}`">
-                </a>
-            </div>
+<div id="contact">
+    <div class="contact_group">
+        <div class="contact_item" v-for="(item,index) in contactArr" :key="index">
+            <a :href="`${item.href}`">
+                <img :src="require(`@/assets/${item.img}`)" :alt="`${item.alt}`">
+            </a>
         </div>
     </div>
+</div>
 </template>
 <script setup>
 import { ref } from 'vue';

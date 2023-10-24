@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "lPiwc5DYmlQTa0t2V7NyKJygYWt58FMAukpbNwrbZw4=",
+  "Hash": "uERhh0jdf4gL/W2V0J2USdSTkATqABUpLKa+VNCpk8w=",
   "Source": "BeApiCRUD",
   "BasePath": "_content/BeApiCRUD",
   "Mode": "Default",
@@ -134,6 +134,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Events\\event7.jpg"
+    },
+    {
+      "Identity": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Events\\main-qimg-d2733b7a3b858bc9f8aedc8e76d6d71a-lq.jpg",
+      "SourceId": "BeApiCRUD",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\",
+      "BasePath": "_content/BeApiCRUD",
+      "RelativePath": "Events/main-qimg-d2733b7a3b858bc9f8aedc8e76d6d71a-lq.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Events\\main-qimg-d2733b7a3b858bc9f8aedc8e76d6d71a-lq.jpg"
+    },
+    {
+      "Identity": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Events\\vue-js-3-fundamentals-with-the-composition-api.jpg",
+      "SourceId": "BeApiCRUD",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\",
+      "BasePath": "_content/BeApiCRUD",
+      "RelativePath": "Events/vue-js-3-fundamentals-with-the-composition-api.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Events\\vue-js-3-fundamentals-with-the-composition-api.jpg"
     },
     {
       "Identity": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Images\\11186_103_100002.jpg",
@@ -508,6 +542,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Slides\\11245_105_100001.jpg"
+    },
+    {
+      "Identity": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\Slides\\code.png",
+      "SourceId": "BeApiCRUD",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\My workspace data\\Advanced_Website\\BeApiCRUD\\wwwroot\\",
+      "BasePath": "_content/BeApiCRUD",
+      "RelativePath": "Slides/code.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Slides\\code.png"
     }
   ]
 }

@@ -24,6 +24,7 @@ function mapProduct(item) {
     duration: item.movieDuration,
     premiere: formatDate(item.movieOgDate),
     status: item.movieStatus,
+    content: item.movieContent,
   };
 }
 

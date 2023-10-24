@@ -21,15 +21,14 @@
 <script setup>
 import { slidesCourseApi } from '@/contantApi/contantApi';
 import axios from 'axios';
-import { defineEmits, ref } from 'vue';
+import {  ref } from 'vue';
 import { useStore } from 'vuex';
 
 
 const store = useStore()
-const emit = defineEmits(['addSlide']);
 
 const closeCreate = () => {
-    emit('addSlide');
+    store.commit('setIsCreateSlide', false)
 };
 
 let newSlide = ref({

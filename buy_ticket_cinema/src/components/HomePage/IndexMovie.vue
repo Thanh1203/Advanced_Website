@@ -1,41 +1,44 @@
 <template>
-    <div id="index">
-        <div class="select_index">
-            <ul class="selects_list">
-                <li v-for="(select, index) in selects" :key="index"
-                :class="{ active: isActive == index }" @click="changeSelect(index)">
-                    {{ select }}
-                </li>
-            </ul>
-        </div>
-        <div class="products">
-            <div class="btn_product btn_pre"><font-awesome-icon @click="prevSlide" :icon="['fas', 'angle-left']" size="2xl" style="color: #000000;" /></div>
-            <Swiper class="products_list" :modules="module" :watchSlidesProgress="true" :slidesPerView="3"
-            :autoplay="{
-                delay: 2500,
-                disableOnInteraction: false,
-            }" :speed="1000" :allowTouchMove="false" @swiper="setSwiperRef" >
-                <SwiperSlide v-for="(product) in filterdProduct" :key="product.id" class="product-swiperslide">
-                    <div class="product_group">
-                        <img :src="`${product.img}`" alt="">
-                        <div class="product_info">
-                            <div class="product-name"><p>{{ product.name.toUpperCase() }}</p></div>
-                            <div class="box-info">
-                                <p><strong>Thể Loại:</strong> {{ product.genre }}</p>
-                                <p><strong>Thời lượng:</strong> {{ product.duration }}</p>
-                                <p><strong>Khởi chiếu: </strong>{{ product.premiere }}</p>
-                            </div>
-                        </div>
-                        <div class="product_btn">
-                            <!-- //todo lượt xem -->
-                            <button type="button" class="btn buy-btn" @click="buyTicket">BUY TICKET !</button>
+<div id="index">
+    <div class="select_index">
+        <ul class="selects_list">
+            <li v-for="(select, index) in selects" :key="index"
+            :class="{ active: isActive == index }" @click="changeSelect(index)">
+                {{ select }}
+            </li>
+        </ul>
+    </div>
+    <div class="products">
+        <div class="btn_product btn_pre"><font-awesome-icon @click="prevSlide" :icon="['fas', 'angle-left']" size="2xl" style="color: #000000;" /></div>
+        <Swiper class="products_list" :modules="module" :watchSlidesProgress="true" :slidesPerView="3"
+        :autoplay="{
+            delay: 2500,
+            disableOnInteraction: false,
+        }" :speed="1000" :allowTouchMove="false" @swiper="setSwiperRef" >
+            <SwiperSlide v-for="(product) in filterdProduct" :key="product.id" class="product-swiperslide">
+                <div class="product_group">
+                    <img :src="`${product.img}`" alt="">
+                    <div class="product_info">
+                        <div class="product-name"><p>{{ product.name.toUpperCase() }}</p></div>
+                        <div class="box-info">
+                            <p><strong>Thể Loại:</strong> {{ product.genre }}</p>
+                            <p><strong>Thời lượng:</strong> {{ product.duration }} phút</p>
+                            <p><strong>Khởi chiếu: </strong>{{ product.premiere }}</p>
                         </div>
                     </div>
-                </SwiperSlide>
-            </Swiper>
-            <div class="btn_product btn_next"><font-awesome-icon @click="nextSlide" :icon="['fas', 'angle-right']" size="2xl" style="color: #000000;" /></div>
-        </div>
+                    <div class="product_btn">
+                        <!-- //todo lượt xem -->
+                        <button type="button" class="btn buy-btn" @click="buyTicket">
+                            <font-awesome-icon :icon="['fas', 'ticket']" size="lg" style="color: #ffffff;" />
+                            <span style="padding-left: 10px; font-weight: bold;">Mua vé</span>
+                        </button>
+                    </div>
+                </div>
+            </SwiperSlide>
+        </Swiper>
+        <div class="btn_product btn_next"><font-awesome-icon @click="nextSlide" :icon="['fas', 'angle-right']" size="2xl" style="color: #000000;" /></div>
     </div>
+</div>
 </template>
 <script>
 import { mapGetters } from 'vuex';
@@ -174,6 +177,12 @@ export default {
     margin: 0 31px;
 }
 
+.product_group .product_btn {
+    width: 228px;
+    height: 36px;
+    display: flex;
+    align-items: start;
+} 
 .product_info
 {
     height: 155px;
@@ -219,6 +228,7 @@ export default {
 {
     background-color: rgb(218, 41, 28);
     color: white;
+    border: none;
 }
 
 .btn_product {

@@ -36,6 +36,7 @@ namespace BeApiCRUD.Controllers
                     MovieDuration = movie.MovieDuration,
                     MovieOgDate = movie.MovieOgDate,
                     MovieStatus = movie.MovieStatus,
+                    MovieContent = movie.MovieContent
                 };
                 if (movie.MovieImgfile != null)
                 {
@@ -99,6 +100,11 @@ namespace BeApiCRUD.Controllers
             if (movie.MovieStatus != null)
             {
                 updateMovie.MovieStatus = movie.MovieStatus;
+            }
+
+            if (movie.MovieContent != null)
+            {
+                updateMovie.MovieContent = movie.MovieContent;
             }
 
             if (movie.MovieImgfile != null && movie.MovieImgfile.Length > 0)

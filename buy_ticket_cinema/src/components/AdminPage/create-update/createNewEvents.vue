@@ -24,14 +24,14 @@
 </template>
 <script setup>
 import { eventsCousreApi } from '@/contantApi/contantApi';
-import { store } from '@/store/store';
 import axios from 'axios';
-import { defineEmits, ref} from 'vue';
+import { ref} from 'vue';
+import { useStore } from 'vuex';
 
-const emit = defineEmits(['addEvent']);
+const store = useStore()
 
 const closeCreate = () => {
-    emit('addEvent');
+    store.commit('setIsCreateEvent', false)
 };
 
 let newEvent = ref({

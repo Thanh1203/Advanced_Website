@@ -20,16 +20,16 @@
     </div>
 </main>
 <!-- * cre-up movie -->
-<createNewFlims v-show="isCreateMovieShow" @addFilms="addNew"/>
+<createNewFlims v-show="isCreateMovieShow"/>
 <updateFlims v-show="isUpdateMovieShow"/>
 <!-- *cre-up event -->
-<createNewEvents v-show="isCreateEventShow" @addEvent="addNew"/>
+<createNewEvents v-show="isCreateEventShow"/>
 <updateEvents v-show="isUpdateEventShow"/>
 <!-- *cre-up slide -->
-<createNewslide v-show="isCreateSlideShow" @addSlide="addNew"/>
+<createNewslide v-show="isCreateSlideShow"/>
 <updateSlide v-show="isUpdateSlideShow"/>
 <!-- *cre-up showtime -->
-<createNewShowtime v-show="isCreateShowtimeShow" @addShowtime="addNew"/>    
+<createNewShowtime v-show="isCreateShowtimeShow"/>    
 
 </template>
 <script setup>
@@ -61,16 +61,16 @@ const store = useStore()
 
 
 //* movie
-let isCreateMovieShow = ref(false)
+let isCreateMovieShow = computed(() => store.getters['isCreateMoive'])
 let isUpdateMovieShow = computed(() => store.getters['isEditMovie'])
 //* event
-let isCreateEventShow = ref(false)
+let isCreateEventShow = computed(() => store.getters['isCreateEvent'])
 let isUpdateEventShow = computed(() => store.getters['isEditEvent'])
 //* slide
-let isCreateSlideShow = ref(false)
+let isCreateSlideShow = computed(() => store.getters['isCreateSlide'])
 let isUpdateSlideShow = computed(() => store.getters['isEditSlide'])
 //* showtime
-let isCreateShowtimeShow = ref(false)
+let isCreateShowtimeShow = computed(() => store.getters['isCreateShowtime'])
 
 
 const changebody = (index) => {
@@ -101,16 +101,16 @@ const changebody = (index) => {
 const addNew = () => {
     switch (bodySelect.value) {
         case 1:
-            isCreateEventShow.value = !isCreateEventShow.value
+            store.commit('setIsCreateEvent', true)
             break;
         case 2:
-            isCreateSlideShow.value = !isCreateSlideShow.value
+            store.commit('setIsCreateSlide', true)
             break;
         case 3:
-            isCreateShowtimeShow.value = !isCreateShowtimeShow.value
+            store.commit('setIsCreateShowtime', true)
             break;
         default:
-            isCreateMovieShow.value = !isCreateMovieShow.value
+            store.commit('setIsCreateMoive', true)
             break;
     }
 }

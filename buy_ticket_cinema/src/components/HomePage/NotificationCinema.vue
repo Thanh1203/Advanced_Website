@@ -1,32 +1,32 @@
 <template>
-    <div id="notice">
-        <div class="notice_ctn">
-            <div class="notice-content">
-                <p>Thông báo</p>
-                <Swiper
-                :direction="'vertical'" :allowTouchMove="false"
-                :modules="modules" :speed="1000"
-                @swiper="setSwiperRef" :loop="true"
-                class="notice-slide"
-                >
-                    <swiper-slide class="notice-slide-item"
-                    v-for="(ctent, index) in noticeArr" :key="index">
-                        <p>{{ ctent.content }}</p>
-                    </swiper-slide>
-                </Swiper>
-                <div class="notice-btn-more">
-                    <a href="#" class="txt_link">
-                        more
-                        <font-awesome-icon :icon="['fas', 'circle-chevron-right']" style="color: #000000;" />
-                    </a>
-                </div>
-            </div>
-            <div class="notice-btn">
-                <div class="notice-btn-item" style="border-bottom: .5px solid #e5e5e5;" @click="upNotice"><font-awesome-icon :icon="['fas', 'caret-up']" style="color: #000000;" /></div>
-                <div class="notice-btn-item" style="border-top: .5px solid #e5e5e5;" @click="downNotice"><font-awesome-icon :icon="['fas', 'caret-down']" style="color: #000000;" /></div>
+<div id="notice">
+    <div class="notice_ctn">
+        <div class="notice-content">
+            <p>Thông báo</p>
+            <Swiper
+            :direction="'vertical'" :allowTouchMove="false"
+            :modules="modules" :speed="1000"
+            @swiper="setSwiperRef" :loop="true"
+            class="notice-slide"
+            >
+                <swiper-slide class="notice-slide-item"
+                v-for="(ctent, index) in noticeArr" :key="index">
+                    <p>{{ ctent.content }}</p>
+                </swiper-slide>
+            </Swiper>
+            <div class="notice-btn-more">
+                <a href="#" class="txt_link">
+                    more
+                    <font-awesome-icon :icon="['fas', 'circle-chevron-right']" style="color: #000000;" />
+                </a>
             </div>
         </div>
+        <div class="notice-btn">
+            <div class="notice-btn-item" style="border-bottom: .5px solid #e5e5e5;" @click="upNotice"><font-awesome-icon :icon="['fas', 'caret-up']" style="color: #000000;" /></div>
+            <div class="notice-btn-item" style="border-top: .5px solid #e5e5e5;" @click="downNotice"><font-awesome-icon :icon="['fas', 'caret-down']" style="color: #000000;" /></div>
+        </div>
     </div>
+</div>
 </template>
 <script setup>
 import { Swiper, SwiperSlide } from 'swiper/vue';

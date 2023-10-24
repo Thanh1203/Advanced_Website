@@ -7,29 +7,36 @@
                 <label for="nameFlim" class="form-label">Tên phim</label>
                 <input type="text" class="form-control" name="nameFlim" v-model="updateFlim.movieName">
             </div>
-            <div class="mb-3">
-                <label for="typeFlim" class="form-label">Thể loại</label>
-                <input type="text" class="form-control" name="typeFlim" v-model="updateFlim.movieGenre">
-            </div>
             <div class="row mb-3">
                 <div class="col">
-                    <label for="durationFlim" class="form-label">Thời lượng</label>
-                    <input type="text" class="form-control" name="durationFlim" v-model="updateFlim.movieDuration">
+                    <label for="typeFlim" class="form-label">Thể loại</label>
+                    <input type="text" class="form-control" name="typeFlim" v-model="updateFlim.movieGenre">
                 </div>
+                <div class="col">
+                    <label for="durationFlim" class="form-label">Thời lượng (phút)</label>
+                    <input type="number" class="form-control" name="durationFlim" v-model="updateFlim.movieDuration" min="0">
+                </div>
+            </div>
+            <div class="row mb-3">
                 <div class="col">
                     <label for="premiereFlim" class="form-label">Ngày khởi chiếu</label>
                     <input type="Date" class="form-control" name="premiereFlim" v-model="updateFlim.movieOgDate">
                 </div>
+                <div class="col">
+                    <label for="" class="form-label">Trạng thái khởi chiếu</label>
+                    <select class="form-select" aria-label="Default select example" v-model="updateFlim.movieStatus">
+                        <option value="1" selected>Đang khởi chiếu</option>
+                        <option value="2">Sắp khởi chiếu</option>
+                    </select>                   
+                </div>
             </div>
             <div class="mb-3">
                 <label for="formFile" class="form-label">Chọn ảnh của phim</label>
-                <input class="form-control" type="file" @change="getImg($event)">
+                <input class="form-control" type="file" @change="getImg($event)" accept="image/*">
             </div>
             <div class="mb-3">
-                <select class="form-select" aria-label="Default select example" v-model="updateFlim.movieStatus">
-                    <option value="1" selected>Đang khởi chiếu</option>
-                    <option value="2">Sắp khởi chiếu</option>
-                </select>   
+                <label for="exampleFormControlTextarea1" class="form-label">Tóm tắt nội dung phim</label>
+                <textarea class="form-control FormControlTextarea" rows="3" v-model="updateFlim.movieContent"></textarea>
             </div>
             <div class="col-12">
                 <button class="btn btn-primary" type="submit" @click.prevent="btnUpdate">Update movie</button>
@@ -60,7 +67,7 @@ watch(getFlimUpdate, (data) => {
             updateFlim.value.movieGenre = data.genre
             updateFlim.value.movieDuration = data.duration
             updateFlim.value.movieStatus = data.status
-            
+            updateFlim.value.movieContent = data.content
         }
     }
 })
@@ -73,6 +80,7 @@ let updateFlim = ref({
     movieOgDate: "",
     movieImgFile: null,
     movieStatus: 1,
+    movieContent: ""
 })
 
 const getImg = (event) => {
@@ -85,6 +93,7 @@ async function btnUpdate() {
     formData.append('movieGenre', updateFlim.value.movieGenre);
     formData.append('movieDuration', updateFlim.value.movieDuration);
     formData.append('movieOgDate', updateFlim.value.movieOgDate);
+    formData.append('movieContent', updateFlim.value.movieContent)
     if (updateFlim.value.movieImgFile != null) {
         formData.append('movieImgFile', updateFlim.value.movieImgFile);
     }
@@ -116,7 +125,7 @@ async function btnUpdate() {
 }
 
 .update-container {
-    height: 500px;
+    height: 550px;
     width: 700px;
     border: 1px solid rgb(80, 80, 80);
     border-radius: 20px;

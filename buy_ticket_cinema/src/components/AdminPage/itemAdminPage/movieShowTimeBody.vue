@@ -79,13 +79,12 @@
 </template>
 <script setup>
 import axios from 'axios';
-import { computed, ref, defineEmits, watch } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { useStore } from 'vuex';
 import { showtimeCoureApi } from '@/contantApi/contantApi'
 
-
 const store = useStore()
-const emit = defineEmits(['addShowtime']);
+
 const isPostShowtime = computed(() => store.getters['reloadShowtime'])
 const products = computed(() => store.getters['products']);
 let selectMovie = ref('default')
@@ -159,7 +158,7 @@ async function getShowTime() {
 function addNewShowtime() {
     const data = [selectMovie.value, selectShowtime.value]
     store.commit("setInfoShowtimeCreate", data)
-    emit('addShowtime');
+    store.commit('setIsCreateShowtime', true)
 }
 
 //* handle edit showtime

@@ -26,10 +26,9 @@
 <script setup>
 import { showtimeCoureApi } from '@/contantApi/contantApi';
 import axios from 'axios';
-import { computed, defineEmits, ref } from 'vue';
+import { computed, ref } from 'vue';
 import { useStore } from 'vuex';
 
-const emit = defineEmits(['addShowtime']);
 const store = useStore()
 
 let showtime = ref({
@@ -40,8 +39,8 @@ let showtime = ref({
 let infoMovie = computed(() => store.getters['infoShowtimeCreate'])
 
 const closeCreate = () => {
-    store.commit("setInfoShowtimeCreate", "")
-    emit('addShowtime');
+    store.commit("setInfoShowtimeCreate", '')
+    store.commit("setIsCreateShowtime", false)
 };
 
 async function createShowtime() {

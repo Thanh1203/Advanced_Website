@@ -7,18 +7,27 @@
                 <label for="nameFlim" class="form-label">Tên phim</label>
                 <input type="text" class="form-control" name="nameFlim" v-model="newFlim.movieName">
             </div>
-            <div class="mb-3">
-                <label for="typeFlim" class="form-label">Thể loại</label>
-                <input type="text" class="form-control" name="typeFlim" v-model="newFlim.movieGenre">
-            </div>
             <div class="row mb-3">
+                <div class="col">
+                    <label for="typeFlim" class="form-label">Thể loại</label>
+                    <input type="text" class="form-control" name="typeFlim" v-model="newFlim.movieGenre">
+                </div>
                 <div class="col">
                     <label for="durationFlim" class="form-label">Thời lượng (phút)</label>
                     <input type="number" class="form-control" name="durationFlim" v-model="newFlim.movieDuration" min="0">
                 </div>
+            </div>
+            <div class="row mb-3">
                 <div class="col">
                     <label for="premiereFlim" class="form-label">Ngày khởi chiếu</label>
                     <input type="Date" class="form-control" name="premiereFlim" v-model="newFlim.movieOgDate">
+                </div>
+                <div class="col">
+                    <label for="" class="form-label">Trạng thái khởi chiếu</label>
+                    <select class="form-select" aria-label="Default select example" v-model="newFlim.movieStatus">
+                        <option value="1" selected>Đang khởi chiếu</option>
+                        <option value="2">Sắp khởi chiếu</option>
+                    </select>                   
                 </div>
             </div>
             <div class="mb-3">
@@ -26,10 +35,8 @@
                 <input class="form-control" type="file" @change="getImg($event)" accept="image/*">
             </div>
             <div class="mb-3">
-                <select class="form-select" aria-label="Default select example" v-model="newFlim.movieStatus">
-                    <option value="1" selected>Đang khởi chiếu</option>
-                    <option value="2">Sắp khởi chiếu</option>
-                </select>   
+                <label for="exampleFormControlTextarea1" class="form-label">Tóm tắt nội dung phim</label>
+                <textarea class="form-control FormControlTextarea" rows="3" v-model="newFlim.movieContent"></textarea>
             </div>
             <div class="col-12">
                 <button class="btn btn-primary" type="submit" @click.prevent="createFlim">Add new movie</button>
@@ -39,17 +46,15 @@
 </div>
 </template>
 <script setup>
-import { defineEmits, ref} from 'vue';
+import {ref} from 'vue';
 import axios from "axios";
 import { useStore } from 'vuex';
 import { filmsCousreApi } from '@/contantApi/contantApi';
 
 const store = useStore()
 
-const emit = defineEmits(['addFilms']);
-
 const closeCreate = () => {
-    emit('addFilms');
+    store.commit('setIsCreateMoive', false)
 };
 
 let newFlim = ref({
@@ -59,6 +64,7 @@ let newFlim = ref({
     movieOgDate: "",
     movieImgFile: "",
     movieStatus: 1,    
+    movieContent:''
 })
 
 const getImg = (event) => {
@@ -73,6 +79,7 @@ async function createFlim() {
     formData.append('movieOgDate', newFlim.value.movieOgDate);
     formData.append('movieStatus', newFlim.value.movieStatus);
     formData.append('movieImgFile', newFlim.value.movieImgFile);
+    formData.append('movieContent', newFlim.value.movieContent)
     try {
         await axios.post(filmsCousreApi, formData, {
             headers: {
@@ -85,6 +92,7 @@ async function createFlim() {
             newFlim.value.movieOgDate = ""
             newFlim.value.movieStatus = 1
             newFlim.value.movieImgFile = ""
+            newFlim.value.movieContent = ""
         }).then(() => {
             store.dispatch('loadProducts')
         });
@@ -107,7 +115,7 @@ async function createFlim() {
 }
 
 .create-container {
-    height: 500px;
+    height: 550px;
     width: 700px;
     border: 1px solid rgb(80, 80, 80);
     border-radius: 20px;

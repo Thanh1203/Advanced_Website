@@ -2,10 +2,10 @@
     <header>
         <div class="header_container">
             <div class="admin fl-jc-center">
-                <font-awesome-icon :icon="['fas', 'user']" style="color: #000000; font-size: 2.5rem;"/>
+                <font-awesome-icon :icon="['fas', 'user']" style="color: #000000; font-size: 2.5rem;" />
             </div>
             <div class="logo fl-jc-center">
-                <img src="../../assets/favicon.png" alt="logo" style="height: 100%;">
+                <img src="../../assets/favicon.png" alt="logo" style="height: 100%;" @click="backHomePage">
             </div>
             <div class="logout fl-jc-center">
                 <button type="button" class="btn btn-outline-danger my-btn-logout" @click.prevent="logout">Logout</button>
@@ -18,7 +18,10 @@ import router from '@/Router/router';
 
 const logout = () => {
     alert("logout")
-    router.push("/Login-Admin")
+    router.push("/Admin%20login")
+}
+const backHomePage = () => {
+    router.push('/')
 }
 </script>
 <style scoped>
