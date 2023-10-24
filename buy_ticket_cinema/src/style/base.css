@@ -50,6 +50,11 @@ ul {
 textarea.FormControlTextarea {
     resize: none;
 }
+
+p {
+    margin: 0;
+}
+
 .txt_link {
     color: var(--Text-color);
     text-decoration: none;
