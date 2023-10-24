@@ -129,11 +129,14 @@ namespace BeApiCRUD.Controllers
             var deMovie = _context.Movies.SingleOrDefault(item => item.IdMovie == id);
             if (deMovie != null)
             {
-                string? strName = deMovie.MovieImage;
-                string[]? strArray = strName?.Split('/');
-                string? lastElement = strArray?.LastOrDefault();
-                var path = Path.Combine(_environment.WebRootPath, "Images", lastElement ?? "default-value");
-                System.IO.File.Delete(path);
+                if (deMovie.MovieImage != null && deMovie.MovieImage != "")
+                {
+                    string strName = deMovie.MovieImage;
+                    string[] strArray = strName.Split('/');
+                    string? lastElement = strArray?.LastOrDefault();
+                    var path = Path.Combine(_environment.WebRootPath, "Images", lastElement ?? "default-value");
+                    System.IO.File.Delete(path);
+                }
                 _context.Movies.Remove(deMovie);
                 await _context.SaveChangesAsync();
                 return Ok(deMovie);

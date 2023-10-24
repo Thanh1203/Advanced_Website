@@ -95,11 +95,14 @@ namespace BeApiCRUD.Controllers
             var deEvent = _context.EventsInfos.SingleOrDefault(item => item.IdEvent == id);
             if (deEvent != null)
             {
-                string? strName = deEvent.Eventimage;
-                string[]? strArray = strName?.Split('/');
-                string? lastElement = strArray?.LastOrDefault();
-                var path = Path.Combine(_enviroment.WebRootPath, "Events", lastElement ?? "default-value");
-                System.IO.File.Delete(path);
+                if (deEvent.Eventimage != null && deEvent.Eventimage != "")
+                {
+                    string strName = deEvent.Eventimage;
+                    string[] strArray = strName.Split('/');
+                    string? lastElement = strArray?.LastOrDefault();
+                    var path = Path.Combine(_enviroment.WebRootPath, "Events", lastElement ?? "default-value");
+                    System.IO.File.Delete(path);
+                }
                 _context.EventsInfos.Remove(deEvent);
                 await _context.SaveChangesAsync();
                 return Ok(deEvent);

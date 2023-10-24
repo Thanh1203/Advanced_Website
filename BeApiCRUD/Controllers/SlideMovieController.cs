@@ -89,14 +89,18 @@ namespace BeApiCRUD.Controllers
             var deSlide = _context.SlideMovies.SingleOrDefault(item => item.IdSlide == id);
             if (deSlide != null)
             {
-                string? strName = deSlide.SlideImage;
-                string[]? strArray = strName?.Split('/');
-                string? lastElement = strArray?.LastOrDefault();
-                var path = Path.Combine(_enviroment.WebRootPath, "Events", lastElement ?? "default-value");
-                System.IO.File.Delete(path);
+                if (deSlide.SlideImage != null && deSlide.SlideImage != "")
+                {
+                    string strName = deSlide.SlideImage;
+                    string[] strArray = strName.Split('/');
+                    string? lastElement = strArray?.LastOrDefault();
+                    var path = Path.Combine(_enviroment.WebRootPath, "Events", lastElement ?? "default-value");
+                    System.IO.File.Delete(path);
+                }
                 _context.SlideMovies.Remove(deSlide);
                 await _context.SaveChangesAsync();
                 return Ok(deSlide);
+
             }
             else { return NotFound(); }
         }
