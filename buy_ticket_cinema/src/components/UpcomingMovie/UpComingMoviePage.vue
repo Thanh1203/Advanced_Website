@@ -29,7 +29,7 @@
     </div>
 </template>
 <script setup>
-import idMovieDetailLocalStore from '@/localStorage/idMovieDetailLocalStore';
+import idMovieDetailLocalStore from '@/localStorage/idMovieDetailLS';
 import router from '@/Router/router';
 import { computed, ref } from 'vue';
 import { useStore } from 'vuex';
@@ -136,4 +136,4 @@ const goDetailMovie = (index) => {
     background-color: rgb(218, 41, 28);
     color: white;
     border: none;
-}</style>
+}</style>@/localStorage/idMovieDetailLS

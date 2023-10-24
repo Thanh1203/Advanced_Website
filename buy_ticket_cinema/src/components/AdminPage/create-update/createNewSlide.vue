@@ -2,14 +2,14 @@
 <div id="createSlide" class="fl-jc-center">
     <div class="create-container">
         <font-awesome-icon :icon="['fas', 'circle-xmark']" size="2xl" style="color: #000000;" class="close-create" @click="closeCreate"/>
-        <form class="form-create">
+        <form class="form-create" ref="form" novalidate>
             <div class="mb-3">
                 <label for="nameFlim" class="form-label">Tên Slide</label>
-                <input type="text" class="form-control" name="nameFlim" v-model="newSlide.slideName">
+                <input type="text" class="form-control" name="nameFlim" v-model="newSlide.slideName" required>
             </div>
             <div class="mb-3">
                 <label for="formFile" class="form-label">Chọn ảnh của phim</label>
-                <input class="form-control" type="file" accept="image/*" @change="getImg($event)" ref="fileinput">
+                <input class="form-control" type="file" accept="image/*" @change="getImg($event)" ref="fileinput" required>
             </div>
             <div class="col-12">
                 <button class="btn btn-primary" type="submit" @click.prevent="createSlide">Add new slide</button>
@@ -42,24 +42,31 @@ const getImg = (ev) => {
     newSlide.value.slideImgFile = ev.target.files[0]
 }
 
-async function createSlide (){
-    const formData = new FormData();
-    formData.append('slideName', newSlide.value.slideName)
-    formData.append('slideImgFile', newSlide.value.slideImgFile)
-    try {
-        await axios.post(slidesCourseApi, formData, {
-            headers: {
-                'Content-Type': 'multipart/form-data',
-            },
-        }).then(() => {
-            newSlide.value.slideName = ''
-            newSlide.value.slideImgFile = null
-            fileinput.value = null
-        }).then(() => {
-            store.dispatch('loadSlide')
-        })
-    } catch (error) {
-        console.log(error)
+const form = ref(null)
+
+async function createSlide() {
+    if (form.value.checkValidity()) {
+        const formData = new FormData();
+        formData.append('slideName', newSlide.value.slideName)
+        formData.append('slideImgFile', newSlide.value.slideImgFile)
+        try {
+            await axios.post(slidesCourseApi, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            }).then(() => {
+                newSlide.value.slideName = ''
+                newSlide.value.slideImgFile = null
+                fileinput.value = null
+                form.value.classList.remove('was-validated')
+            }).then(() => {
+                store.dispatch('loadSlide')
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    } else {
+        form.value.classList.add('was-validated')
     }
 }
 

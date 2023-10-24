@@ -2,18 +2,18 @@
     <div id="createShowtime" class="fl-jc-center">
         <div class="create-container">
             <font-awesome-icon :icon="['fas', 'circle-xmark']" size="2xl" style="color: #000000;" class="close-create" @click="closeCreate"/>
-            <form class="form-create">
+            <form class="form-create" ref="form" novalidate>
                 <div class="mb-3">
                     <label class="form-label">{{ infoMovie[1] }}</label>
                 </div>
                 <div class="row mb-3">
                     <div class="col">
                         <label class="form-label">Khung giờ</label>
-                        <input type="time" class="form-control" v-model="showtime.timeslot">
+                        <input type="time" class="form-control" v-model="showtime.timeslot" required>
                     </div>
                     <div class="col">
                         <label class="form-label">Số lượng vé</label>
-                        <input type="number" class="form-control" min="0" v-model="showtime.nofTikets">
+                        <input type="number" class="form-control" min="0" v-model="showtime.nofTikets" required>
                     </div>
                 </div>
                 <div class="col-12">
@@ -36,6 +36,8 @@ let showtime = ref({
     nofTikets: ''
 })
 
+const form = ref(null)
+
 let infoMovie = computed(() => store.getters['infoShowtimeCreate'])
 
 const closeCreate = () => {
@@ -44,23 +46,29 @@ const closeCreate = () => {
 };
 
 async function createShowtime() {
-    try {
-        const formData = new FormData()
-        formData.append('idMovie', infoMovie.value[0])
-        formData.append('movieDate', infoMovie.value[1])
-        formData.append('timeslot', showtime.value.timeslot)
-        formData.append('nofTickets', showtime.value.nofTikets)
-        await axios.post(showtimeCoureApi, formData, {
-            headers: {
-                'Content-Type': 'multipart/form-data',
-            },
-        }).then(() => {
-            showtime.value.timeslot = ''
-            showtime.value.nofTikets = ''
-            store.commit("setReloadShowtime", true)
-        })
-    } catch (error) {
-        console.error(error)
+    if (form.value.checkValidity()) {
+        try {
+            const formData = new FormData()
+            formData.append('idMovie', infoMovie.value[0])
+            formData.append('movieDate', infoMovie.value[1])
+            formData.append('timeslot', showtime.value.timeslot)
+            formData.append('nofTickets', showtime.value.nofTikets)
+            await axios.post(showtimeCoureApi, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            }).then(() => {
+                showtime.value.timeslot = ''
+                showtime.value.nofTikets = ''
+                form.value.classList.remove('was-validated')
+            }).then(() => {
+                store.commit("setReloadShowtime", true)
+            })
+        } catch (error) {
+            console.error(error)
+        }
+    } else {
+        form.value.classList.add('was-validated')
     }
 }
 

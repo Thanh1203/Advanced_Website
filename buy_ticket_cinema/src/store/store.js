@@ -6,6 +6,7 @@ import slideCrtUdt from "./modules/slideCrtUdt";
 import showtimeCrtUdt from "./modules/showtimeCrtUdt";
 import movieIsShowing from "./modules/movieIsShowing";
 import movieDetail from "./modules/movieDetail";
+import buyTicket from "./modules/buyTicket";
 
 export const store = createStore({
   modules: {
@@ -16,5 +17,6 @@ export const store = createStore({
     showtimeCrtUdt,
     movieIsShowing,
     movieDetail,
+    buyTicket,
   },
 });

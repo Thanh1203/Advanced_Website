@@ -32,7 +32,7 @@
 import router from '@/Router/router';
 import { computed, ref } from 'vue';
 import { useStore } from 'vuex';
-import idMovieDetailLocalStore from '@/localStorage/idMovieDetailLocalStore'
+import idMovieDetailLocalStore from '@/localStorage/idMovieDetailLS'
 
 const store = useStore()
 const products = computed(() => store.getters['dataMovieIsShowing'])
@@ -127,4 +127,4 @@ const goDetailMovie = (index) => {
     color: white;
     border: none;
 }
-</style>@/localStorage/idMovieDetailLocalStore
+</style>@/localStorage/idMovieDetailLocalStore@/localStorage/idMovieDetailLS

@@ -6,18 +6,18 @@
     </div>
     <div class="LoginForm">
         <h1 class="title-login">Login</h1>
-        <form action="#" class="login-form">
+        <form class="login-form" ref="form" novalidate>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1"><font-awesome-icon :icon="['fas', 'user']" style="color: #000000;" /></span>
                 <div class="form-floating">
-                    <input type="text" class="form-control" placeholder="Username">
+                    <input type="text" class="form-control" placeholder="Username" required>
                     <label>Username</label>
                 </div>
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1"><font-awesome-icon :icon="['fas', 'key']" style="color: #000000;" /></span>
                 <div class="form-floating">   
-                    <input type="password" class="form-control" placeholder="Password">
+                    <input type="password" class="form-control" placeholder="Password" required>
                     <label>Password</label>
                 </div>
             </div>
@@ -34,21 +34,27 @@
                     <p class="content-col">Don't have an account? <span class="goRe" @click="goRegister">Register now!</span></p>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary" @click="loginning">Login</button>
+            <button type="submit" class="btn btn-primary" @click.prevent="loginning">Login</button>
         </form>
     </div>
 </div>
 </template>
 <script setup>
 import router from '@/Router/router';
+import { ref } from 'vue';
 
-
+const form = ref(null)
+// const errorMess = ref(null)
 const goRegister = () => {
     router.push('/Register')
 }
 
 const loginning = () => {
-    router.push('/')
+    if (form.value.checkValidity()) {
+        router.push('/')
+    } else {
+        form.value.classList.add('was-validated')
+    }
 }
 
 </script>
