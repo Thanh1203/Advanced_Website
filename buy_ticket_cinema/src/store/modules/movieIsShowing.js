@@ -1,3 +1,5 @@
+import { getApiDataMovie } from "@/contantApi/getDataApi";
+
 const state = {
   dataMovieIsShowing: [],
   dataUpComingMovie: [],
@@ -18,13 +20,23 @@ const mutations = {
 };
 
 const actions = {
-  movieShowing({ commit }, data) {
-    const movies = movieFilter(data, 1);
-    commit("setMovieIsShowing", movies);
+  movieShowing({ commit }) {
+    getApiDataMovie()
+      .then((data) => {
+        return movieFilter(data, 1);
+      })
+      .then((data) => {
+        commit("setMovieIsShowing", data);
+      });
   },
-  upComingMovie({ commit }, data) {
-    const movies = movieFilter(data, 2);
-    commit("setDataUpComingMoive", movies);
+  upComingMovie({ commit }) {
+    getApiDataMovie()
+      .then((data) => {
+        return movieFilter(data, 2);
+      })
+      .then((data) => {
+        commit("setDataUpComingMoive", data);
+      });
   },
 };
 

@@ -21,14 +21,10 @@
 <script setup>
 import { slidesCourseApi } from '@/contantApi/contantApi';
 import axios from 'axios';
-import { computed, onMounted, ref } from 'vue';
+import { computed, ref } from 'vue';
 import { useStore } from 'vuex';
 
 const store = useStore()
-
-onMounted(() => {
-    store.dispatch('loadSlide')
-})
 
 const slidePhotos = computed(() => store.getters['slidePhotos'])
 

@@ -1,4 +1,4 @@
-import { ID_DETAIL_MOVIE } from "@/localStorage/keyLocalStorage";
+import { ID_DETAIL_MOVIE } from "./keyLocalStorage";
 
 export default {
   get() {

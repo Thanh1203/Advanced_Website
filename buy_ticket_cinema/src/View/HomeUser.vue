@@ -22,6 +22,17 @@ import ContactUser from '@/components/HomePage/ContactUser.vue';
 import NotificationCinema from '@/components/HomePage/NotificationCinema.vue';
 import FooterContact from '@/components/HomePage/FooterContact.vue';
 
+import { useStore } from "vuex";
+import { onMounted } from "vue";
+
+const store = useStore();
+
+onMounted(() => {
+    store.dispatch("loadProducts");
+    store.dispatch("loadSlide");
+    store.dispatch("loadEvents");
+})
+
 </script>
 <style scoped>
 

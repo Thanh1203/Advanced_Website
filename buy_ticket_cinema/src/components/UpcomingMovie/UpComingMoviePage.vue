@@ -29,12 +29,14 @@
     </div>
 </template>
 <script setup>
-import idMovieDetailLocalStore from '@/localStorage/idMovieDetailLS';
+
 import router from '@/Router/router';
+import idMovieLS from '@/localStorage/idMovieLS';
 import { computed, ref } from 'vue';
 import { useStore } from 'vuex';
 
 const store = useStore()
+
 const products = computed(() => store.getters['dataUpComingMovie'])
 const dataProducts = computed(() => store.getters['products'])
 
@@ -44,7 +46,7 @@ const goDetailMovie = (index) => {
     const IdproductItem = productItem.value[index].attributes[1].value
     const data = dataProducts.value.find(item => item.id == IdproductItem)
     store.commit('setMovieDetail', data)
-    idMovieDetailLocalStore.set(IdproductItem)
+    idMovieLS.set(IdproductItem)
     router.push('/Detail%20movie')
 }
 </script>
@@ -136,4 +138,4 @@ const goDetailMovie = (index) => {
     background-color: rgb(218, 41, 28);
     color: white;
     border: none;
-}</style>@/localStorage/idMovieDetailLS
+}</style>

@@ -105,21 +105,12 @@ async function btnUpdate() {
             }
         }).then(() => {
             store.dispatch('loadProducts')
-            store.commit('setIsReload', randomIsreload())
         });
     } catch (error) {
         console.error(error)
     }
 }
 
-function randomIsreload() {
-    const oldValue = store.getters['getIsReload']
-    let temp
-    do {
-        temp = Math.floor(Math.random() * (100 - 1 + 1)) + 1
-    } while (temp === oldValue);
-    return temp
-}
 </script>
 <style scoped>
 #updateFlim {

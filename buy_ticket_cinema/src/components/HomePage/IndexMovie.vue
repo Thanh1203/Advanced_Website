@@ -17,7 +17,7 @@
         }" :speed="1000" :allowTouchMove="false" @swiper="setSwiperRef" >
             <SwiperSlide v-for="(product) in filterdProduct" :key="product.id" class="product-swiperslide">
                 <div class="product_group">
-                    <img :src="`${product.img}`" alt="">
+                    <img :src="`${product.img}`">
                     <div class="product_info">
                         <div class="product-name"><p>{{ product.name.toUpperCase() }}</p></div>
                         <div class="box-info">

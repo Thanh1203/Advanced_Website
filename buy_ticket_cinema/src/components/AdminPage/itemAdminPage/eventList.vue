@@ -24,14 +24,10 @@
 <script setup>
 import { eventsCousreApi } from '@/contantApi/contantApi';
 import axios from 'axios';
-import { computed, onMounted, ref } from 'vue';
+import { computed, ref } from 'vue';
 import { useStore } from 'vuex';
 
-onMounted(() => {
-    store.dispatch('loadEvents')
-})
 const store = useStore()
-
 const events = computed(() => store.getters['events']);
 const eventItem = ref(null)
 

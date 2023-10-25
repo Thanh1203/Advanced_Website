@@ -1,19 +1,7 @@
 <template>
   <router-view> </router-view>
 </template>
-
 <script setup>
-import { useStore } from "vuex";
-import { onMounted } from "vue";
-
-const store = useStore();
-
-onMounted(() => {
-  store.dispatch("loadProducts");
-  store.dispatch("loadSlide");
-  store.dispatch("loadEvents");
-
-})
 </script>
 
 <style>

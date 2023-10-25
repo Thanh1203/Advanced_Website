@@ -1,12 +1,12 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 //* User
 import HomeUser from "@/View/HomeUser.vue";
-import LoginComponentVue from "@/components/LoginPage/LoginComponent.vue";
+import PageLoginVue from "@/View/PageLogin.vue";
 import RegisterComponentVue from "@/components/LoginPage/RegisterComponent.vue";
 import BuyTicketVue from "@/View/BuyTicket.vue";
 import MovieShowingVue from "@/View/MovieShowing.vue";
 import UpComingMovieVue from "@/View/UpComingMovie.vue";
-import DetailMovie from "@/components/DetailPage/bodyDetailProductPage.vue";
+import DetailMovieVue from "@/View/DetailMovie.vue";
 //* Admin
 import PageLoginAdminVue from "@/View/PageLoginAdmin.vue";
 import HomeAdminVue from "@/View/HomeAdmin.vue";
@@ -19,7 +19,7 @@ const routes = [
   },
   {
     path: "/Login",
-    component: LoginComponentVue,
+    component: PageLoginVue,
   },
   {
     path: "/Register",
@@ -39,7 +39,7 @@ const routes = [
   },
   {
     path: "/Detail%20movie",
-    component: DetailMovie,
+    component: DetailMovieVue,
   },
   //* Admin
   {

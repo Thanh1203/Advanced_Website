@@ -17,10 +17,10 @@ import { useStore } from "vuex";
 import { onMounted } from "vue";
 
 const store = useStore()
-onMounted(() => {
-    store.dispatch("dumpMovieDetail")
-})
 
+onMounted(() => {
+    store.dispatch("loadMovieDetail")
+})
 
 </script>
 <style scoped></style>

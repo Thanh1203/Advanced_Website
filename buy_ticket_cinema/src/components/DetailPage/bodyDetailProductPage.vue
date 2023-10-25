@@ -4,9 +4,9 @@
         <div class="detailMovie_header">
             <h2>Nội Dung Phim</h2>
         </div>
-        <div class="detailMovie_body" v-bind="product">
+        <div class="detailMovie_body">
             <div class="detailMovie_img">
-                <img :src="`${product?.img}`" :alt="`${product?.name}`">
+                <img :src="`${product?.img}`" @error="setAltImg">
             </div>
             <div class="detailMovie_info">
                 <div class="detailMovie_name"> 
@@ -24,24 +24,24 @@
                 <font-awesome-icon :icon="['fas', 'ticket']" size="lg" style="color: #ffffff;" />
                 <span style="padding-left: 10px; font-weight: bold;">Mua vé</span>
             </button>
-            <button type="button" class="btn trailer-btn" @click="watchTicket">
+            <button type="button" class="btn trailer-btn">
                 <font-awesome-icon :icon="['fas', 'video']" size="lg" style="color: #ffffff;" />
                 <span style="padding-left: 10px; font-weight: bold;">Trailer</span>
             </button>
         </div>
-        <div class="detailMovie_synopsis" v-bind="product">
+        <div class="detailMovie_synopsis">
             <p>Tóm tắt</p>
-            {{ product?.content }}
+            {{ product?.content === "null" ? '' : product?.content }}
         </div>
     </div>
 </div>
 </template>
 <script setup>
-// import idMovieDetailLocalStore from '@/localStorage/idMovieDetailLocalStore';
-import { computed } from 'vue';
+import { computed} from 'vue';
 import { useStore } from 'vuex';
 
 const store = useStore()
+
 const product = computed(() => store.getters['getMovieDetail'])
 
 </script>

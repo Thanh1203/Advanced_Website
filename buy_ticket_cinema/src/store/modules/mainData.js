@@ -3,7 +3,6 @@ import {
   getApiDataMovie,
   getApiDataSlide,
 } from "@/contantApi/getDataApi";
-import movieIsShowing from "./movieIsShowing";
 
 const state = {
   slidePhotos: [],
@@ -32,15 +31,9 @@ const mutations = {
 const actions = {
   loadProducts({ commit }) {
     try {
-      getApiDataMovie()
-        .then((data) => {
-          commit("dumpDataProducts", data);
-        })
-        .then(() => {
-          const result = state.products;
-          movieIsShowing.actions.movieShowing({ commit }, result);
-          movieIsShowing.actions.upComingMovie({ commit }, result);
-        });
+      getApiDataMovie().then((data) => {
+        commit("dumpDataProducts", data);
+      });
     } catch (error) {
       console.error(error);
     }

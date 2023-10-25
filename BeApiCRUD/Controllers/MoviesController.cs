@@ -23,6 +23,13 @@ namespace BeApiCRUD.Controllers
             return Ok(ifMovies);
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetMoviesWithId(int id)
+        {
+            var ifMovies = await _context.Movies.SingleOrDefaultAsync(item => item.IdMovie == id);
+            return Ok(ifMovies);
+        }
+
         [HttpPost]
         public async Task<IActionResult> CreateMoive([FromForm] MoviesFile movie)
         {

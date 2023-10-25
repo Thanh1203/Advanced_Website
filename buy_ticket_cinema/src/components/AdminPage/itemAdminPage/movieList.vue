@@ -28,14 +28,14 @@
 <script setup>
 import { filmsCousreApi } from '@/contantApi/contantApi';
 import axios from 'axios';
-import { computed, ref, watch } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import { useStore } from 'vuex';
 
 const store = useStore()
 
-watch(store.getters['products'], () => {
+onMounted(() => {
     store.dispatch("loadProducts");
-}, { immediate: true, deep: true })
+})
 
 const products = computed(() => store.getters['products']);
 

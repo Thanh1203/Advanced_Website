@@ -55,10 +55,9 @@ import { useStore } from 'vuex';
 let listSelect = ref(["Danh Sách Phim", "Danh sách sự kiện", "Danh Sách Slide", "Lịch chiếu phim"]);
 let btnSelect = ref('New movie')
 let mainTitle = ref("Danh Sách Phim")
+// let bodySelect = computed(() => selectStateAdmin.get())
 let bodySelect = ref(0)
-
 const store = useStore()
-
 
 //* movie
 let isCreateMovieShow = computed(() => store.getters['isCreateMoive'])
@@ -79,11 +78,13 @@ const changebody = (index) => {
             mainTitle.value = "Danh Sách Sự Kiện"
             btnSelect.value = "New event"
             bodySelect.value = 1
+            store.dispatch('loadEvents')
             break;
         case 2:
             mainTitle.value = "Danh Sách Slide"
             btnSelect.value = "New photo slide"
             bodySelect.value = 2
+            store.dispatch('loadSlide')
             break;
         case 3:
             mainTitle.value = "Lịch chiếu phim"
@@ -93,7 +94,7 @@ const changebody = (index) => {
         default:
             mainTitle.value = "Danh Sách Phim"
             btnSelect.value = "New movie"
-            bodySelect.value = 0
+            bodySelect.value =0
             break;
     }
 }

@@ -1,5 +1,5 @@
-import idMovieDetailLS from "@/localStorage/idMovieDetailLS";
-import mainData from "./mainData";
+import { getApiDataMovieWithId } from "@/contantApi/getDataApi";
+
 const state = {
   movieDetail: [],
 };
@@ -15,10 +15,14 @@ const mutations = {
 };
 
 const actions = {
-  dumpMovieDetail({ commit }) {
-    const data = mainData.getters.products;
-    const movieDetail = data.find((item) => item.id == idMovieDetailLS.get());
-    commit("setMovieDetail", movieDetail);
+  loadMovieDetail({ commit }) {
+    try {
+      getApiDataMovieWithId().then((data) => {
+        commit("setMovieDetail", data);
+      });
+    } catch (error) {
+      console.error(error);
+    }
   },
 };
 
