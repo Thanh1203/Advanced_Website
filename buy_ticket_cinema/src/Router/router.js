@@ -6,7 +6,7 @@ import RegisterComponentVue from "@/components/LoginPage/RegisterComponent.vue";
 import BuyTicketVue from "@/View/BuyTicket.vue";
 import MovieShowingVue from "@/View/MovieShowing.vue";
 import UpComingMovieVue from "@/View/UpComingMovie.vue";
-import DetailProductVue from "@/View/DetailProduct.vue";
+import DetailMovie from "@/components/DetailPage/bodyDetailProductPage.vue";
 //* Admin
 import PageLoginAdminVue from "@/View/PageLoginAdmin.vue";
 import HomeAdminVue from "@/View/HomeAdmin.vue";
@@ -39,7 +39,7 @@ const routes = [
   },
   {
     path: "/Detail%20movie",
-    component: DetailProductVue,
+    component: DetailMovie,
   },
   //* Admin
   {

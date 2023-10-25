@@ -4,8 +4,6 @@ import {
   getApiDataSlide,
 } from "@/contantApi/getDataApi";
 import movieIsShowing from "./movieIsShowing";
-import movieDetail from "./movieDetail";
-import idMovieDetailLS from "@/localStorage/idMovieDetailLS";
 
 const state = {
   slidePhotos: [],
@@ -42,11 +40,6 @@ const actions = {
           const result = state.products;
           movieIsShowing.actions.movieShowing({ commit }, result);
           movieIsShowing.actions.upComingMovie({ commit }, result);
-          result.forEach((item) => {
-            if (item.id == idMovieDetailLS.get()) {
-              movieDetail.actions.dumpMovieDetail({ commit }, item);
-            }
-          });
         });
     } catch (error) {
       console.error(error);

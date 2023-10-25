@@ -1,9 +1,11 @@
+import idMovieDetailLS from "@/localStorage/idMovieDetailLS";
+import mainData from "./mainData";
 const state = {
   movieDetail: [],
 };
 
 const getters = {
-  movieDetail: (state) => state.movieDetail,
+  getMovieDetail: (state) => state.movieDetail,
 };
 
 const mutations = {
@@ -13,8 +15,10 @@ const mutations = {
 };
 
 const actions = {
-  dumpMovieDetail({ commit }, data) {
-    commit("setMovieDetail", data);
+  dumpMovieDetail({ commit }) {
+    const data = mainData.getters.products;
+    const movieDetail = data.find((item) => item.id == idMovieDetailLS.get());
+    commit("setMovieDetail", movieDetail);
   },
 };
 

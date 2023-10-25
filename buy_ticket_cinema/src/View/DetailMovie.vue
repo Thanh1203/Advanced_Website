@@ -13,5 +13,14 @@
 import NavigateHeader from "@/components/HomePage/NavigateHeader.vue";
 import bodyDetailProductPage from "@/components/DetailPage/bodyDetailProductPage.vue"
 import FooterContact from "@/components/HomePage/FooterContact.vue";
+import { useStore } from "vuex";
+import { onMounted } from "vue";
+
+const store = useStore()
+onMounted(() => {
+    store.dispatch("dumpMovieDetail")
+})
+
+
 </script>
 <style scoped></style>

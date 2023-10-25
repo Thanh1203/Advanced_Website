@@ -9,11 +9,13 @@ import { onMounted } from "vue";
 const store = useStore();
 
 onMounted(() => {
-  store.dispatch("loadSlide");
   store.dispatch("loadProducts");
+  store.dispatch("loadSlide");
   store.dispatch("loadEvents");
-});
+
+})
 </script>
+
 <style>
 #app {
   height: 100%;

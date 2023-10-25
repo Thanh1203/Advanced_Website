@@ -42,7 +42,7 @@ import { computed } from 'vue';
 import { useStore } from 'vuex';
 
 const store = useStore()
-const product = computed(() => store.getters['movieDetail'])
+const product = computed(() => store.getters['getMovieDetail'])
 
 </script>
 <style scoped>

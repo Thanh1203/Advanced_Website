@@ -28,17 +28,18 @@
 <script setup>
 import { filmsCousreApi } from '@/contantApi/contantApi';
 import axios from 'axios';
-import { computed, onMounted, ref } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { useStore } from 'vuex';
 
 const store = useStore()
 
-onMounted(() => {
-    store.dispatch('loadProducts')
-})
+watch(store.getters['products'], () => {
+    store.dispatch("loadProducts");
+}, { immediate: true, deep: true })
+
 const products = computed(() => store.getters['products']);
 
-const productItem = ref(null)
+const productItem = ref(null)   
 
 function editMovie(index) {
     store.commit("setInfoMovieUpdate", products.value[index])

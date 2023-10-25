@@ -19,4 +19,15 @@ export const store = createStore({
     movieDetail,
     buyTicket,
   },
+  state: {
+    isReload: [],
+  },
+  getters: {
+    getIsReload: (state) => state.isReload,
+  },
+  mutations: {
+    setIsReload(state, data) {
+      state.isReload = data;
+    },
+  },
 });
