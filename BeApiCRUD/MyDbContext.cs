@@ -10,5 +10,7 @@ namespace BeApiCRUD
         public DbSet<EventsInfo> EventsInfos { get; set; }
         public DbSet<SlideMovie> SlideMovies { get; set; }
         public DbSet<Showtime> Showtimes { get; set; }
+        public DbSet<UserInfo> UserInfos { get; set; }
+        public DbSet<AccUser> AccUsers { get; set; }
     }
 }

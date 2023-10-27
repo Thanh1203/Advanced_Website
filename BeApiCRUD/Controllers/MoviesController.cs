@@ -128,8 +128,6 @@ namespace BeApiCRUD.Controllers
             return Ok(updateMovie);
         }
 
-
-
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteMovie(int id)
         {
