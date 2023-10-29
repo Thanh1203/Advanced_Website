@@ -9,14 +9,12 @@ namespace BeApiCRUD.Model
         [Key]
         public int? IdUser { get; set; }
         public string? UserFullName { get; set; }
-        public string? UserSex {  get; set; }
-        public string? UserImage { get; set;}
+        public string? UserSex { get; set; }
         public DateTime? UserBirth { get; set; }
-        public string? UserPhonenumber { get; set;}
-    }
-    public class UserInfoFile : UserInfo
-    {
-        [NotMapped]
-        public IFormFile? UserAvatar { get; set; }
+        public string? UserPhonenumber { get; set; }
+        public string? UserCity { get; set; }
+        public string? UserDistrict { get; set; }
+        public string? UserLocation { get; set; }
+        public string? UserEmail { get; set; }
     }
 }

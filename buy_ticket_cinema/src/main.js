@@ -3,6 +3,9 @@ import App from "./App.vue";
 
 //*base css
 import "./style/base.css";
+import "@fontsource/roboto"; // Defaults to weight 400
+import "@fontsource/roboto/400.css"; // Specify weight
+import "@fontsource/roboto/400-italic.css"; // Specify weight and style
 //* responsive css
 import "./style/responsive.css";
 //* icon
@@ -21,6 +24,7 @@ import router from "./Router/router";
 const app = createApp(App);
 library.add(fas);
 app.component("font-awesome-icon", FontAwesomeIcon);
+
 app.use(store);
 app.use(router);
 

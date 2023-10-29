@@ -2,11 +2,11 @@ import { createRouter, createWebHashHistory } from "vue-router";
 //* User
 import HomeUser from "@/View/HomeUser.vue";
 import PageLoginVue from "@/View/PageLogin.vue";
-import RegisterComponentVue from "@/components/LoginPage/RegisterComponent.vue";
 import BuyTicketVue from "@/View/BuyTicket.vue";
 import MovieShowingVue from "@/View/MovieShowing.vue";
 import UpComingMovieVue from "@/View/UpComingMovie.vue";
 import DetailMovieVue from "@/View/DetailMovie.vue";
+import UserInformation from "@/View/UserInformation.vue";
 //* Admin
 import PageLoginAdminVue from "@/View/PageLoginAdmin.vue";
 import HomeAdminVue from "@/View/HomeAdmin.vue";
@@ -20,10 +20,6 @@ const routes = [
   {
     path: "/Login",
     component: PageLoginVue,
-  },
-  {
-    path: "/Register",
-    component: RegisterComponentVue,
   },
   {
     path: "/Buy%20ticket",
@@ -40,6 +36,10 @@ const routes = [
   {
     path: "/Detail%20movie",
     component: DetailMovieVue,
+  },
+  {
+    path: "/User%20Information",
+    component: UserInformation,
   },
   //* Admin
   {

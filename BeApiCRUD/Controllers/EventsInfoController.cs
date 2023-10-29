@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore;
 namespace BeApiCRUD.Controllers
 {
     [Route("/[controller]")]
+    [ApiController]
+
     public class EventsInfoController : ControllerBase
     {
         private readonly MyDbContext _context;

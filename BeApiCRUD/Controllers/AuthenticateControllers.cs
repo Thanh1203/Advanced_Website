@@ -27,18 +27,19 @@ namespace BeApiCRUD.Controllers
             _configuration = configuration;
         }
 
-        [AllowAnonymous]
         [HttpPost]
         [Route("Login")]
         public async Task<IActionResult> Login([FromForm] AccUser model)
         {
             var user = await _context.AccUsers.SingleOrDefaultAsync(item => item.Username == model.Username && item.Password == model.Password);
-            if (user != null) {
+            if (user != null)
+            {
                 var token = GetToken(user);
-               return Ok(new {
-                   token = new JwtSecurityTokenHandler().WriteToken(token),
-                   expiration = token?.ValidTo
-               });
+                return Ok(new
+                {
+                    token = new JwtSecurityTokenHandler().WriteToken(token),
+                    expiration = token?.ValidTo
+                });
             }
             return Unauthorized();
         }
@@ -50,7 +51,7 @@ namespace BeApiCRUD.Controllers
                 return null;
             }
             var secretkey = _configuration["JWT:SecretKey"];
-            if (secretkey == null )
+            if (secretkey == null)
             {
                 return new JwtSecurityToken();
             }

@@ -7,6 +7,8 @@ using Microsoft.EntityFrameworkCore;
 namespace BeApiCRUD.Controllers
 {
     [Route("/[controller]")]
+    [ApiController]
+
     public class ShowtimeController : ControllerBase
     {
         private readonly MyDbContext _context;

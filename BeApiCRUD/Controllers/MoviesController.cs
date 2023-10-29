@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore;
 namespace BeApiCRUD.Controllers
 {
     [Route("/[controller]")]
+    [ApiController]
+
     public class MoviesController : ControllerBase
     {
         private readonly MyDbContext _context;
