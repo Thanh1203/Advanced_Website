@@ -59,7 +59,6 @@ async function goHomePage() {
                 }
             }).then((res) => {
                 window.sessionStorage.setItem('token', res.data.token)
-                window.sessionStorage.setItem('islogin', true)
                 router.push('/')
             })
         } catch (error) {

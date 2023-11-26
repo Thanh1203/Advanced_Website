@@ -7,6 +7,7 @@ import MovieShowingVue from "@/View/MovieShowing.vue";
 import UpComingMovieVue from "@/View/UpComingMovie.vue";
 import DetailMovieVue from "@/View/DetailMovie.vue";
 import UserInformation from "@/View/UserInformation.vue";
+import GitShop from "@/View/GitShop.vue";
 //* Admin
 import PageLoginAdminVue from "@/View/PageLoginAdmin.vue";
 import HomeAdminVue from "@/View/HomeAdmin.vue";
@@ -40,6 +41,10 @@ const routes = [
   {
     path: "/User%20Information",
     component: UserInformation,
+  },
+  {
+    path: "/Git%20Shop",
+    component: GitShop,
   },
   //* Admin
   {

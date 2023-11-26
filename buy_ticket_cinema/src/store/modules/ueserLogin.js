@@ -19,9 +19,11 @@ const mutations = {
 
 const actions = {
   loadIsLoginUser({ commit }) {
-    const data = window.sessionStorage.getItem("islogin");
+    const data = window.sessionStorage.getItem("token");
     if (data) {
-      commit("setIsLoginUser", JSON.parse(data));
+      commit("setIsLoginUser", true);
+    } else {
+      commit("setIsLoginUser", false);
     }
   },
 };

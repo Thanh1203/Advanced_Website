@@ -8,6 +8,8 @@ import movieIsShowing from "./modules/movieIsShowing";
 import movieDetail from "./modules/movieDetail";
 import buyTicket from "./modules/buyTicket";
 import ueserLogin from "./modules/ueserLogin";
+import userInformation from "./modules/userInformation";
+import moduleGitShop from "./modules/moduleGitShop";
 
 export const store = createStore({
   modules: {
@@ -20,5 +22,7 @@ export const store = createStore({
     movieDetail,
     buyTicket,
     ueserLogin,
+    userInformation,
+    moduleGitShop,
   },
 });

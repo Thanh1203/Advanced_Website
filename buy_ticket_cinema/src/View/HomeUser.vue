@@ -1,17 +1,17 @@
 <template>
-    <header>
-        <NavigateHeader/>
-    </header>
-    <main>
-        <SliderMain/>
-        <IndexMovie/>
-        <EventUser/>
-        <ContactUser/>
-    </main>
-    <footer>
-        <NotificationCinema/>
-        <FooterContact/>
-    </footer>
+<header>
+    <NavigateHeader/>
+</header>
+<main>
+    <SliderMain/>
+    <IndexMovie/>
+    <EventUser/>
+    <ContactUser/>
+</main>
+<footer>
+    <NotificationCinema/>
+    <FooterContact/>
+</footer>
 </template>
 <script setup>
 import NavigateHeader from '@/components/HomePage/NavigateHeader.vue';

@@ -25,7 +25,6 @@ body {
 }
 
 header {
-    height: 130px;
     width: 100%;
     position: relative;
     display: flex;
@@ -57,6 +56,10 @@ p {
     margin: 0;
 }
 
+dl dd, dt {
+    margin: 0;
+}
+
 .txt_link {
     color: var(--Text-color);
     text-decoration: none;
@@ -65,9 +68,17 @@ p {
 
 .swiper-button-prev,
 .swiper-button-next {
-    color: white;
+    color: white !important;
+    opacity: 1 !important;
 }
 
+.swiper-button-prev {
+    left: 5% !important;
+}
+
+.swiper-button-next {
+    right: 5% !important;
+}
 .hide {
     display: none !important;
 }
@@ -79,4 +90,8 @@ p {
 .fl-jc-center {
     display: flex;
     justify-content: center;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: white !important;
 }

@@ -49,6 +49,9 @@ const goDetailMovie = (index) => {
     idMovieLS.set(IdproductItem)
 }
 
+const buyTicket = () => {
+    router.push('/Buy%20ticket')
+}
 </script>
 <style scoped>
 #movieshowing {

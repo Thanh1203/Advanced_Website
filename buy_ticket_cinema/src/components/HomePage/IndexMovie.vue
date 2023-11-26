@@ -86,7 +86,7 @@ export default {
             this.isActive = index
         },
         buyTicket: function () {
-            this.$router.push("/Buy_ticket")
+            this.$router.push("/Buy%20ticket")
         }
     },
     setup() {

@@ -14,7 +14,6 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 //* bootstrap css
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
-
 //*store
 import { store } from "./store/store";
 
@@ -24,7 +23,6 @@ import router from "./Router/router";
 const app = createApp(App);
 library.add(fas);
 app.component("font-awesome-icon", FontAwesomeIcon);
-
 app.use(store);
 app.use(router);
 

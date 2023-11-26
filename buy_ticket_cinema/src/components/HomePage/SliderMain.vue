@@ -76,8 +76,4 @@ export default {
     opacity: .5 !important;
     background-color: black;
 }
-
-.swiper-pagination-bullet-active{
-    background-color: rgb(218, 41, 28) !important;
-}
 </style>
