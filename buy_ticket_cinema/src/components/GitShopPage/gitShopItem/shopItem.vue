@@ -1,6 +1,8 @@
 <template>
 <div class="gitShop_list-item" :key="props.id">
-    <div class="git_image"></div>
+    <div class="git_image">
+        <img :src="require(`../../../assets/${props.photo}`)">
+    </div>
     <div class="git_infor">
         <p>{{ props.title }}</p>
         <p>{{ props.detail }}</p>
@@ -18,7 +20,8 @@ const props = defineProps({
     id: String,
     title: String,
     detail: String,
-    price: String
+    price: String,
+    photo: String
 })
 
 
@@ -31,6 +34,7 @@ const props = defineProps({
 .git_image {
     width: 230px;
     height: 189px;
+    display: flex;
 }
 
 .git_infor {

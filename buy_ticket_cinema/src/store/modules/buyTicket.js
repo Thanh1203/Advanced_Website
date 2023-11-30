@@ -1,3 +1,6 @@
+import { getApiDataMovieWithId } from "@/contantApi/getDataApi";
+import idMovieBuyTicket from "@/localStorage/idMovieBuyTicket";
+
 const state = {
   movieBuyTicket: [],
 };
@@ -13,8 +16,14 @@ const mutations = {
 };
 
 const actions = {
-  insertMovieBuyTicket({ commit }, data) {
-    commit("setMovieBuyTicket", data);
+  insertMovieBuyTicket({ commit }) {
+    try {
+      getApiDataMovieWithId(idMovieBuyTicket.get()).then((data) => {
+        commit("setMovieBuyTicket", data);
+      });
+    } catch (error) {
+      console.error(error);
+    }
   },
 };
 

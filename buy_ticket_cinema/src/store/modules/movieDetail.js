@@ -1,4 +1,5 @@
 import { getApiDataMovieWithId } from "@/contantApi/getDataApi";
+import idMovieLS from "@/localStorage/idMovieLS";
 
 const state = {
   movieDetail: [],
@@ -17,7 +18,7 @@ const mutations = {
 const actions = {
   loadMovieDetail({ commit }) {
     try {
-      getApiDataMovieWithId().then((data) => {
+      getApiDataMovieWithId(idMovieLS.get()).then((data) => {
         commit("setMovieDetail", data);
       });
     } catch (error) {

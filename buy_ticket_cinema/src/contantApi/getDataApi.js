@@ -1,6 +1,6 @@
 import axios from "axios";
 import { eventsCousreApi, filmsCousreApi, slidesCourseApi } from "./contantApi";
-import idMovieLS from "@/localStorage/idMovieLS";
+// import idMovieLS from "@/localStorage/idMovieLS";
 
 function formatDate(inputDate) {
   const date = new Date(inputDate);
@@ -56,10 +56,10 @@ export async function getApiDataMovie() {
     console.error(error);
   }
 }
-export async function getApiDataMovieWithId() {
+export async function getApiDataMovieWithId(id) {
   try {
     const products = await axios
-      .get(`${filmsCousreApi}/${idMovieLS.get()}`)
+      .get(`${filmsCousreApi}/${id}`)
       .then((res) => mapProduct(res.data));
     return products;
   } catch (error) {

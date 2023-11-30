@@ -18,7 +18,7 @@
                     </div>
                 </div>
                 <div class="product_btn">
-                    <button type="button" class="btn buy-btn" @click="buyTicket">
+                    <button type="button" class="btn buy-btn" @click="buyTicket(index)">
                         <font-awesome-icon :icon="['fas', 'ticket']" size="lg" style="color: #ffffff;" />
                         <span style="padding-left: 10px; font-weight: bold;">Mua vé</span>
                     </button>
@@ -33,6 +33,7 @@ import router from '@/Router/router';
 import { computed, ref } from 'vue';
 import { useStore } from 'vuex';
 import idMovieLS from '@/localStorage/idMovieLS'
+import idMovieBuyTicket from '@/localStorage/idMovieBuyTicket';
 
 const store = useStore()
 
@@ -49,7 +50,9 @@ const goDetailMovie = (index) => {
     idMovieLS.set(IdproductItem)
 }
 
-const buyTicket = () => {
+const buyTicket = (index) => {
+    const IdproductItem = productItem.value[index].attributes[1].value
+    idMovieBuyTicket.set(IdproductItem)
     router.push('/Buy%20ticket')
 }
 </script>
