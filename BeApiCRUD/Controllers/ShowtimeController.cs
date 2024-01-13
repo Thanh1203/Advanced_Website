@@ -12,8 +12,6 @@ namespace BeApiCRUD.Controllers
     public class ShowtimeController : ControllerBase
     {
         private readonly MyDbContext _context;
-
-
         public ShowtimeController(MyDbContext context)
         {
             _context = context;
@@ -28,7 +26,6 @@ namespace BeApiCRUD.Controllers
             .ToListAsync();
             return Ok(ifShowtimes);
         }
-
         [HttpPost]
         public async Task<IActionResult> CreateShowTime([FromForm] Showtime model)
         {
@@ -39,7 +36,8 @@ namespace BeApiCRUD.Controllers
                     IdMovie = model.IdMovie,
                     Moviedate = model.Moviedate,
                     Timeslot = model.Timeslot,
-                    NofTickets = model.NofTickets
+                    NofTickets = model.NofTickets,
+                    NofSeat = model.NofTickets
                 };
                 _context.Add(newShowtime);
                 await _context.SaveChangesAsync();
@@ -83,6 +81,10 @@ namespace BeApiCRUD.Controllers
                 if (model.NofTickets != null)
                 {
                     updateShowtime.NofTickets = model.NofTickets;
+                }
+                if (model.NofSeat != null)
+                {
+                    updateShowtime.NofSeat = model.NofSeat;
                 }
                 await _context.SaveChangesAsync();
                 return Ok(updateShowtime);

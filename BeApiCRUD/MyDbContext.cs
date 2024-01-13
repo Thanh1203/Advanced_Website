@@ -12,5 +12,6 @@ namespace BeApiCRUD
         public DbSet<Showtime> Showtimes { get; set; }
         public DbSet<UserInfo> UserInfos { get; set; }
         public DbSet<AccUser> AccUsers { get; set; }
+        public DbSet<Ticket> Tickets { get; set; }
     }
 }

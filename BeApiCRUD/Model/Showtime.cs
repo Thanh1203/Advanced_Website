@@ -11,6 +11,7 @@ namespace BeApiCRUD.Model
         public string? Moviedate { get; set; }
         public DateTime? Timeslot { get; set; }
         public int? NofTickets { get; set; }
+        public int? NofSeat { get; set; }
         [Key]
         public int? Row_number { get; set; }
     }
